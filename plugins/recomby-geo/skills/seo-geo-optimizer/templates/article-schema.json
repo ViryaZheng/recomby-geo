@@ -1,0 +1,191 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[Article Title - 110 characters max]",
+  "description": "[Brief description of article content - 150 characters]",
+  "image": {
+    "@type": "ImageObject",
+    "url": "[https://yourdomain.com/images/article-image.jpg]",
+    "width": 1200,
+    "height": 630,
+    "caption": "[Image description]"
+  },
+  "datePublished": "[2025-01-15T10:00:00Z]",
+  "dateModified": "[2025-11-11T14:30:00Z]",
+  "author": {
+    "@type": "Person",
+    "name": "[Dr. Full Name]",
+    "honorificPrefix": "[Dr.]",
+    "honorificSuffix": "[MD, PhD]",
+    "url": "[https://yourdomain.com/about/author-name]",
+    "jobTitle": "[Board-Certified Physician, Professor]",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "[Organization Name]",
+      "url": "[https://organization.com]"
+    },
+    "affiliation": {
+      "@type": "Organization",
+      "name": "[Stanford School of Medicine]"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "[Harvard Medical School]"
+    },
+    "sameAs": [
+      "[https://scholar.google.com/citations?user=ABC123]",
+      "[https://orcid.org/0000-0001-2345-6789]",
+      "[https://linkedin.com/in/author-name]"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "[Brand Name]",
+    "url": "[https://yourdomain.com]",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "[https://yourdomain.com/logo.png]",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "[https://yourdomain.com/article-url]"
+  },
+  "articleSection": "[Category]",
+  "keywords": "[primary keyword, semantic keyword, long-tail keyword]",
+  "wordCount": 1500,
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".article-summary", ".tldr", "h1", "h2", ".key-takeaways"]
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "[Main topic]",
+    "description": "[Topic description]"
+  },
+  "mentions": [
+    {
+      "@type": "Thing",
+      "name": "[Related Entity 1]"
+    },
+    {
+      "@type": "Thing",
+      "name": "[Related Entity 2]"
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "[Study Title]",
+      "author": "[Author et al.]",
+      "datePublished": "[2024]",
+      "url": "[https://pubmed.ncbi.nlm.nih.gov/xxxxx]"
+    }
+  ]
+}
+
+/*
+USAGE NOTES:
+
+1. E-E-A-T Signals (+40% Citation Boost):
+   - honorificSuffix: Add credentials (MD, PhD, MBA, etc.)
+   - affiliation: Link to recognized institutions
+   - alumniOf: Show educational pedigree
+   - sameAs: Link to Google Scholar, ORCID, LinkedIn
+   - worksFor: Connect to authoritative organizations
+
+2. Author Schema (Critical):
+   - Use full name consistently across site
+   - Include all credentials and affiliations
+   - Link to external profiles (Google Scholar, ORCID)
+   - Create dedicated author bio page
+   - Use @id to reference author from multiple articles
+
+3. Dates (Freshness Signals):
+   - datePublished: Original publication date
+   - dateModified: Last update (update weekly for active content)
+   - Use ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)
+   - Perplexity heavily weights recency
+
+4. Speakable (Voice Search):
+   - Specify sections for voice assistants to read
+   - Include: .tldr, h1, h2, summary sections
+   - Keep speakable content concise (29 words)
+   - Use natural language phrasing
+
+5. Citations (Credibility):
+   - Link to primary sources (PubMed, arXiv)
+   - Include study authors and publication year
+   - Use DOI or PubMed URL
+   - Strengthens E-E-A-T signals
+
+6. Keywords:
+   - Use comma-separated list
+   - Include primary, semantic, and long-tail
+   - Match actual content keywords
+   - Don't stuff (5-10 keywords max)
+
+7. Image Requirements:
+   - Minimum 1200×630px (Open Graph standard)
+   - High quality, compressed
+   - Include descriptive caption
+   - Alt text in HTML (not schema)
+
+AI PLATFORM OPTIMIZATION:
+
+ChatGPT:
+- Prioritizes author credentials
+- Values institutional affiliations
+- Requires comprehensive coverage (1500+ words)
+- Checks citation quality
+
+Perplexity:
+- Heavily weights dateModified (update weekly)
+- Prefers specialized, deep-dive content
+- Values inline citations
+- Checks primary source links
+
+Claude:
+- Validates credentials through external links
+- Requires primary source citations
+- Checks institutional affiliations
+- Verifies publication dates
+
+Gemini:
+- Integrates with Knowledge Graph
+- Values traditional authority signals
+- Checks Google Scholar profiles
+- Prioritizes established entities
+
+EXAMPLE - Medical Article:
+
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Understanding Longevity Biomarkers: A Physician's Guide",
+  "datePublished": "2025-01-15T10:00:00Z",
+  "dateModified": "2025-11-11T14:30:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Sarah Johnson",
+    "honorificSuffix": "MD, PhD, FAAD",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Stanford School of Medicine"
+    }
+  }
+}
+
+PLACEMENT:
+Add to <head> or before </body>:
+<script type="application/ld+json">
+[PASTE JSON HERE]
+</script>
+
+TESTING:
+- Google Rich Results Test: https://search.google.com/test/rich-results
+- Schema Markup Validator: https://validator.schema.org/
+- Verify author links resolve correctly
+*/

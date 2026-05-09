@@ -1,0 +1,106 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is [topic]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Direct answer in 29 words or less for voice search optimization. Include primary keyword and quantified benefit when possible. Example: Optimal LDL cholesterol for longevity is below 70 mg/dL, reducing cardiovascular risk by 30-40% compared to standard targets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does [topic] work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comprehensive answer explaining mechanism, process, or methodology. Can be longer than voice search answer. Include relevant statistics and citations to primary sources for credibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is [topic] important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Explain significance, benefits, and impact. Quantify whenever possible (e.g., '40% increase', '30% reduction'). Reference research studies to strengthen E-E-A-T signals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I [action related to topic]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Provide clear timeline, conditions, or triggers. Be specific and actionable. Use qualifiers like 'immediately', 'within 30 days', 'when symptoms appear' for clarity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who should [action related to topic]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Define target audience or eligibility criteria. Include any contraindications or special considerations. Be inclusive while being specific about ideal candidates."
+      }
+    }
+  ]
+}
+
+/*
+USAGE NOTES:
+
+1. Question Format:
+   - Use natural language (how people actually search)
+   - Start with: What, How, Why, When, Who, Where, Which, Can, Does, Is
+   - Include long-tail variations
+   - Example: "What is the optimal LDL cholesterol level for longevity?"
+
+2. Answer Format:
+   - First answer: 29 words max (voice search optimized)
+   - Subsequent answers: Can be longer (100-300 words)
+   - Include primary keywords naturally
+   - Use quantified claims when possible
+
+3. AI Citation Optimization:
+   - FAQ schema has HIGHEST citation probability
+   - ChatGPT prioritizes Q&A format
+   - Perplexity extracts direct answers
+   - Claude validates question-answer pairs
+   - Voice assistants read first answer verbatim
+
+4. Minimum Requirements:
+   - 3-5 questions minimum
+   - Cover primary search intents
+   - Answer both informational and transactional queries
+   - Include question variations (synonyms, phrasing)
+
+5. E-E-A-T Signals:
+   - Cite sources in answers
+   - Reference studies by year
+   - Mention credentials when relevant
+   - Link to authoritative sources
+
+EXAMPLES:
+
+Medical Topic:
+Q: "What is optimal LDL cholesterol?"
+A: "Optimal LDL cholesterol for longevity is below 70 mg/dL, significantly lower than standard lab reference of 100 mg/dL, reducing cardiovascular risk by 30-40%."
+
+Tech Topic:
+Q: "What is Generative Engine Optimization?"
+A: "GEO (Generative Engine Optimization) optimizes content for AI search engines like ChatGPT and Perplexity, achieving 527% traffic growth in early 2025."
+
+Service Topic:
+Q: "When should I hire a consultant?"
+A: "Hire a consultant when facing complex strategic decisions, entering new markets, or needing specialized expertise not available internally, typically for 3-6 month engagements."
+
+TESTING:
+- Google Rich Results Test: https://search.google.com/test/rich-results
+- Schema Markup Validator: https://validator.schema.org/
+- Test voice search: "Hey Google, [question]"
+
+PLACEMENT:
+Add to <head> or before </body>:
+<script type="application/ld+json">
+[PASTE JSON HERE]
+</script>
+*/

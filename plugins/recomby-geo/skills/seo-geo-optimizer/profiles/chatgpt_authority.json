@@ -1,0 +1,22 @@
+{
+  "name": "ChatGPT Authority",
+  "description": "Optimize for ChatGPT with emphasis on authority and credentials",
+  "platform": "chatgpt",
+  "settings": {
+    "min_word_count": 1500,
+    "add_credentials": true,
+    "citation_style": "academic",
+    "structure": "answer_first",
+    "add_references": true,
+    "author_prominent": true,
+    "schema_types": ["Article", "FAQPage"],
+    "emphasis": "depth_and_authority"
+  },
+  "targets": {
+    "word_count": "1500-2500",
+    "citations": "5-10 primary sources (PubMed, arXiv)",
+    "schema": "Article with E-E-A-T signals",
+    "format": "Answer-first, listicles, how-to"
+  },
+  "expected_impact": "+40% citation probability with credentials"
+}

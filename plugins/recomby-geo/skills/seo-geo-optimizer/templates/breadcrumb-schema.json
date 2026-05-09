@@ -1,0 +1,156 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://yourdomain.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "[Category Name]",
+      "item": "https://yourdomain.com/category"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "[Subcategory Name]",
+      "item": "https://yourdomain.com/category/subcategory"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "[Current Page Name]",
+      "item": "https://yourdomain.com/category/subcategory/page"
+    }
+  ]
+}
+
+/*
+USAGE NOTES:
+
+1. Breadcrumb Benefits:
+   - Shows site structure in search results
+   - Improves navigation understanding
+   - Displays in Google mobile results
+   - Helps AI understand content hierarchy
+   - Better user experience
+
+2. Position:
+   - Must start at 1 (Home page)
+   - Sequential numbering (1, 2, 3, 4...)
+   - No gaps in sequence
+   - Minimum 2 items (Home + Current)
+
+3. Item URLs:
+   - Must be absolute URLs (https://...)
+   - Each level should be accessible
+   - Should match actual page URLs
+   - Include trailing slashes consistently
+
+4. Name:
+   - Use actual page titles
+   - Keep concise (2-5 words)
+   - Match visible breadcrumb text
+   - Use title case or sentence case consistently
+
+5. Best Practices:
+   - Include on every page except homepage
+   - Maximum 5-7 levels deep
+   - Skip unnecessary intermediate levels if very deep
+   - Last item is current page
+   - Match HTML breadcrumb navigation
+
+HTML BREADCRUMB (Place in page):
+<nav aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/category">Category</a></li>
+    <li><a href="/category/subcategory">Subcategory</a></li>
+    <li aria-current="page">Current Page</li>
+  </ol>
+</nav>
+
+EXAMPLES:
+
+E-commerce:
+Home > Products > Skincare > Anti-Aging > Retinol Serum
+
+Blog:
+Home > Blog > Longevity > Biomarkers > LDL Cholesterol Guide
+
+Service Site:
+Home > Services > Consulting > Strategy > Market Entry
+
+Medical:
+Home > Treatments > Aesthetic > Botox > What to Expect
+
+GOOGLE DISPLAY:
+yourdomain.com › Category › Subcategory › Current Page
+
+AI BENEFITS:
+
+ChatGPT:
+- Understands content hierarchy
+- Places page in site context
+- Better topic categorization
+
+Perplexity:
+- Shows related content paths
+- Improves site navigation
+- Better content discovery
+
+Claude:
+- Validates content organization
+- Understands site structure
+- Better context interpretation
+
+Gemini:
+- Integrates with site structure
+- Displays in search results
+- Mobile-friendly navigation
+
+DYNAMIC GENERATION (Example - JavaScript):
+
+function generateBreadcrumb(path) {
+  const parts = path.split('/').filter(p => p);
+  const items = [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://yourdomain.com"
+  }];
+
+  let currentPath = "https://yourdomain.com";
+  parts.forEach((part, index) => {
+    currentPath += `/${part}`;
+    items.push({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": formatName(part),
+      "item": currentPath
+    });
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items
+  };
+}
+
+PLACEMENT:
+Add to every page (except homepage):
+<script type="application/ld+json">
+[PASTE JSON HERE]
+</script>
+
+TESTING:
+- Google Rich Results Test: https://search.google.com/test/rich-results
+- Verify all URLs are accessible
+- Check mobile display
+- Test with Google Search Console
+*/

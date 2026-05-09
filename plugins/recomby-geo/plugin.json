@@ -1,17 +1,16 @@
 {
   "name": "recomby-geo",
-  "version": "0.1.0",
-  "description": "GEO skill orchestration plugin. Run 01-intake → 02-audit → 03-gap → 04-content-brief → 05-production → 06-distribution → 07-reaudit on a per-client folder convention. Skill prompts are universal; client-specific context lives in clients/<slug>/.",
+  "version": "0.3.0",
+  "description": "Self-contained GEO (Generative Engine Optimization) plugin. 7 slash commands (/01-intake → /07-reaudit) orchestrate the workflow; 6 vendored open-source skills supply the commodity capabilities (audit, content writing, schema, internal linking, keyword expansion, quality scoring). Per-client folder convention.",
   "author": {
     "name": "Recomby.ai"
   },
   "skills": [
-    "skills/01-intake",
-    "skills/02-audit",
-    "skills/03-gap",
-    "skills/04-content-brief",
-    "skills/05-production",
-    "skills/06-distribution",
-    "skills/07-reaudit"
+    "./skills/content-quality-auditor",
+    "./skills/content-writer",
+    "./skills/internal-linking-optimizer",
+    "./skills/keyword-research",
+    "./skills/meta-tags-optimizer",
+    "./skills/seo-geo-optimizer"
   ]
 }

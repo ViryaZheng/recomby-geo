@@ -1,0 +1,20 @@
+{
+  "name": "Voice Search Optimized",
+  "description": "Optimize for voice assistants (Google Assistant, Siri, Alexa)",
+  "platform": "voice",
+  "settings": {
+    "add_faq": true,
+    "add_speakable": true,
+    "featured_snippet": true,
+    "reading_level": 8,
+    "answer_length": "30-40 words",
+    "schema_types": ["FAQPage", "HowTo", "Speakable"]
+  },
+  "targets": {
+    "answer_format": "30-40 word summaries",
+    "schema": "Speakable + FAQPage + HowTo",
+    "reading_level": "8th grade or lower",
+    "structure": "Question-based H2s with direct answers"
+  },
+  "expected_impact": "40.7% of voice answers from featured snippets"
+}

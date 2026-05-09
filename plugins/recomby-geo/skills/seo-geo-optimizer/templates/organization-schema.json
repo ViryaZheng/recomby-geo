@@ -1,0 +1,233 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "[Organization Full Name]",
+  "alternateName": "[Alternate Name or Abbreviation]",
+  "url": "https://yourdomain.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://yourdomain.com/logo.png",
+    "width": 600,
+    "height": 60
+  },
+  "image": "https://yourdomain.com/images/organization-photo.jpg",
+  "description": "[1-2 sentence description of what the organization does]",
+  "foundingDate": "2018-01-15",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "[Founder Full Name]",
+      "url": "https://yourdomain.com/about/founder"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[123 Main Street, Suite 100]",
+    "addressLocality": "[City]",
+    "addressRegion": "[State/Province]",
+    "postalCode": "[ZIP/Postal Code]",
+    "addressCountry": "[US]"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "[+1-555-123-4567]",
+      "contactType": "Customer Service",
+      "email": "contact@yourdomain.com",
+      "availableLanguage": ["English"],
+      "areaServed": ["US", "CA"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "[+1-555-123-4568]",
+      "contactType": "Sales",
+      "email": "sales@yourdomain.com"
+    }
+  ],
+  "sameAs": [
+    "https://twitter.com/yourorg",
+    "https://linkedin.com/company/yourorg",
+    "https://facebook.com/yourorg",
+    "https://instagram.com/yourorg",
+    "https://www.wikidata.org/wiki/Q12345678"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": 50
+  },
+  "location": {
+    "@type": "Place",
+    "name": "[Office Name]",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[123 Main Street]",
+      "addressLocality": "[City]",
+      "addressRegion": "[State]",
+      "postalCode": "[ZIP]",
+      "addressCountry": "[US]"
+    }
+  }
+}
+
+/*
+SPECIALIZED ORGANIZATION TYPES:
+
+For more specific schema types, replace "@type": "Organization" with:
+
+1. LocalBusiness (Physical Location):
+   "@type": "LocalBusiness"
+   - Add: "openingHours", "geo", "priceRange"
+   - Use for: Retail stores, restaurants, offices
+
+2. MedicalBusiness (Healthcare):
+   "@type": "MedicalBusiness"
+   - Add: "medicalSpecialty", "availableService"
+   - Use for: Clinics, hospitals, medical practices
+
+3. ProfessionalService:
+   "@type": "ProfessionalService"
+   - Add: "priceRange", "areaServed", "serviceType"
+   - Use for: Consulting, legal, accounting firms
+
+4. EducationalOrganization:
+   "@type": "EducationalOrganization"
+   - Add: "alumni", "department"
+   - Use for: Schools, universities, training centers
+
+5. Corporation:
+   "@type": "Corporation"
+   - Add: "tickerSymbol", "numberOfEmployees"
+   - Use for: Public companies
+
+USAGE NOTES:
+
+1. Organization Identity:
+   - Use consistent name across web
+   - Include common alternate names
+   - Match Google Business Profile exactly
+   - No variations or abbreviations
+
+2. NAP Consistency (Critical for Local):
+   - Name, Address, Phone must match EXACTLY
+   - Use same format everywhere
+   - Include complete address with ZIP
+   - Use E.164 format for phone (+1-555-123-4567)
+
+3. Logo Requirements:
+   - Square or rectangular
+   - Minimum 112×112px
+   - Maximum 10MB
+   - PNG, JPG, or WebP
+   - Transparent background preferred
+
+4. sameAs (Authority Signals):
+   - Link to official social profiles
+   - Include Wikipedia/Wikidata if available
+   - Google Scholar for research orgs
+   - Crunchbase for companies
+   - Must be verified/official accounts
+
+5. Contact Information:
+   - Multiple contact types (Sales, Support, etc.)
+   - Include email and phone
+   - Specify languages supported
+   - Define service areas
+
+KNOWLEDGE GRAPH OPTIMIZATION:
+
+Google Knowledge Panel Requirements:
+1. Consistent NAP across 10+ citations
+2. Claimed Google Business Profile
+3. Active social media profiles
+4. Official website with Organization schema
+5. Media mentions and press coverage
+6. Wikidata entry (if eligible)
+
+Entity Recognition Signals:
+- Official website with org schema
+- Social media profiles linked (sameAs)
+- Consistent information across web
+- Reviews and ratings
+- Press coverage
+- Industry recognition
+
+EXAMPLES:
+
+Medical Clinic:
+{
+  "@type": "MedicalBusiness",
+  "name": "199 Clinic",
+  "medicalSpecialty": "Aesthetic Medicine, Regenerative Therapy",
+  "description": "Board-certified physicians providing aesthetic medicine and personalized wellness plans.",
+  "priceRange": "$$$",
+  "sameAs": [
+    "https://linkedin.com/company/199clinic",
+    "https://www.wikidata.org/wiki/Q12345678"
+  ]
+}
+
+Consulting Firm:
+{
+  "@type": "ProfessionalService",
+  "name": "Strategic Advisory Group",
+  "serviceType": "Management Consulting, Strategy",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  }
+}
+
+Tech Company:
+{
+  "@type": "Corporation",
+  "name": "TechCorp Inc.",
+  "tickerSymbol": "TECH",
+  "numberOfEmployees": 250,
+  "foundingDate": "2015"
+}
+
+AI PLATFORM BENEFITS:
+
+ChatGPT:
+- Recognizes organization as entity
+- Links to official information
+- Cites organizational credentials
+- +40% citation boost for established orgs
+
+Perplexity:
+- Shows organization details
+- Links to official profiles
+- Displays location and contact
+- Validates through external sources
+
+Claude:
+- Verifies organizational credentials
+- Checks institutional affiliations
+- Validates through sameAs links
+- Requires consistent information
+
+Gemini:
+- Integrates with Knowledge Graph
+- Shows in business search
+- Displays GMB information
+- Prioritizes local results
+
+PLACEMENT:
+Add to homepage:
+<script type="application/ld+json">
+[PASTE JSON HERE]
+</script>
+
+TESTING:
+- Google Rich Results Test: https://search.google.com/test/rich-results
+- Search your organization name (check Knowledge Panel)
+- Verify all sameAs links work
+- Confirm NAP consistency across web
+*/

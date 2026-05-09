@@ -1,0 +1,300 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "[Full Name]",
+  "honorificPrefix": "[Dr., Prof., Mr., Ms.]",
+  "honorificSuffix": "[MD, PhD, MBA, JD]",
+  "givenName": "[First Name]",
+  "familyName": "[Last Name]",
+  "gender": "[Male/Female]",
+  "birthDate": "[1985-01-15]",
+  "url": "https://yourdomain.com/about/person-name",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://yourdomain.com/images/person-headshot.jpg",
+    "width": 400,
+    "height": 400
+  },
+  "jobTitle": "[Board-Certified Physician, Professor, CEO]",
+  "description": "[1-2 sentence professional bio highlighting expertise and experience]",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "[Organization Name]",
+    "url": "https://organization.com",
+    "sameAs": "https://linkedin.com/company/organization"
+  },
+  "affiliation": [
+    {
+      "@type": "Organization",
+      "name": "[Stanford School of Medicine]"
+    },
+    {
+      "@type": "Organization",
+      "name": "[American Academy of Dermatology]"
+    }
+  ],
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "[Harvard Medical School]",
+      "sameAs": "https://hms.harvard.edu"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "[Yale University]"
+    }
+  ],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=ABC123",
+    "https://orcid.org/0000-0001-2345-6789",
+    "https://linkedin.com/in/person-name",
+    "https://twitter.com/person-handle",
+    "https://www.wikidata.org/wiki/Q87654321"
+  ],
+  "knowsAbout": [
+    "Dermatology",
+    "Regenerative Medicine",
+    "Longevity Science",
+    "Aesthetic Medicine"
+  ],
+  "award": [
+    "Top Physician, City Magazine 2024",
+    "Research Excellence Award, Medical Association 2023",
+    "40 Under 40, Business Journal 2022"
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Board Certification",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "American Board of Internal Medicine"
+    }
+  },
+  "colleague": [
+    {
+      "@type": "Person",
+      "name": "[Colleague Name]",
+      "url": "https://yourdomain.com/about/colleague"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-123-4567",
+    "email": "person@yourdomain.com",
+    "contactType": "Professional"
+  }
+}
+
+/*
+USAGE NOTES:
+
+1. E-E-A-T Signals (+40% Citation Boost):
+   - honorificSuffix: CRITICAL - Add ALL credentials (MD, PhD, MBA, etc.)
+   - affiliation: Link to recognized institutions
+   - alumniOf: Show educational background
+   - worksFor: Connect to authoritative organizations
+   - sameAs: Link to Google Scholar, ORCID, LinkedIn
+   - hasCredential: Specify board certifications
+
+2. Credentials Format:
+   Medical:
+   - "MD, PhD, FAAD" (American Academy of Dermatology Fellow)
+   - "DO, MBA, FACP" (American College of Physicians Fellow)
+   - "DDS, MS" (Dental specialists)
+
+   Academic:
+   - "PhD, MBA"
+   - "JD, LLM"
+   - "EdD, MA"
+
+   Professional:
+   - "CPA, CFA"
+   - "PE, MBA"
+   - "PMP, CISSP"
+
+3. Image Requirements:
+   - Professional headshot
+   - Square ratio (400×400px minimum)
+   - High quality, well-lit
+   - Professional attire
+   - Solid or simple background
+   - Consistent across platforms
+
+4. sameAs (Authority Links):
+   Priority order:
+   1. Google Scholar (academics, researchers)
+   2. ORCID (researchers, scientists)
+   3. LinkedIn (all professionals)
+   4. Twitter/X (public figures)
+   5. Wikipedia/Wikidata (notable individuals)
+   6. Professional association profiles
+   7. University faculty pages
+
+5. knowsAbout (Expertise):
+   - List 3-10 areas of expertise
+   - Use recognized field names
+   - Match content topics
+   - Include specializations
+   - Align with industry terminology
+
+6. Awards and Recognition:
+   - Recent awards (last 5 years)
+   - Notable achievements
+   - Industry recognition
+   - Publications and patents
+   - Speaking engagements
+
+KNOWLEDGE GRAPH OPTIMIZATION:
+
+Google Knowledge Panel Requirements:
+1. Dedicated profile page on website
+2. Person schema on profile page
+3. Active LinkedIn profile (complete)
+4. Google Scholar profile (if academic)
+5. Professional headshot (consistent)
+6. Author bylines on articles
+7. External mentions and citations
+
+Entity Recognition Signals:
+- Consistent name usage everywhere
+- Professional profiles linked (sameAs)
+- Author schema on all articles
+- Credentials displayed
+- Institutional affiliations
+- Published works
+- Media mentions
+
+AUTHOR ATTRIBUTION (Articles):
+
+On each article page, link to person:
+{
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "@id": "https://yourdomain.com/about/person-name#person"
+  }
+}
+
+On person profile page, use full schema with #person ID:
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://yourdomain.com/about/person-name#person",
+  "name": "Dr. Full Name",
+  ...
+}
+
+EXAMPLES:
+
+Medical Professional:
+{
+  "@type": "Person",
+  "name": "Dr. Sarah Johnson",
+  "honorificSuffix": "MD, PhD, FAAD",
+  "jobTitle": "Board-Certified Dermatologist, Professor",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "199 Clinic"
+  },
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Stanford School of Medicine"
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Harvard Medical School"
+  },
+  "sameAs": [
+    "https://scholar.google.com/citations?user=ABC123",
+    "https://orcid.org/0000-0001-2345-6789"
+  ]
+}
+
+Business Executive:
+{
+  "@type": "Person",
+  "name": "John Smith",
+  "honorificSuffix": "MBA, CPA",
+  "jobTitle": "Chief Executive Officer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "TechCorp Inc."
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Harvard Business School"
+  }
+}
+
+Academic Researcher:
+{
+  "@type": "Person",
+  "name": "Dr. Emily Chen",
+  "honorificSuffix": "PhD",
+  "jobTitle": "Professor of Computer Science",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "MIT"
+  },
+  "sameAs": [
+    "https://scholar.google.com/citations?user=XYZ789",
+    "https://orcid.org/0000-0002-1234-5678"
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Natural Language Processing"
+  ]
+}
+
+AI PLATFORM BENEFITS:
+
+ChatGPT (+40% citation boost):
+- Prioritizes authors with credentials
+- Values institutional affiliations
+- Requires expertise validation
+- Checks Google Scholar citations
+
+Perplexity:
+- Links to author profiles
+- Shows credentials prominently
+- Validates through external links
+- Displays institutional affiliations
+
+Claude:
+- Validates credentials through sameAs
+- Checks institutional affiliations
+- Requires primary source linkage
+- Verifies expertise claims
+
+Gemini:
+- Integrates with Knowledge Graph
+- Shows in people search
+- Displays LinkedIn information
+- Prioritizes verified profiles
+
+PLACEMENT:
+
+On person profile/bio page:
+<script type="application/ld+json">
+[PASTE JSON HERE with @id]
+</script>
+
+On each article by this person:
+<script type="application/ld+json">
+{
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "@id": "https://yourdomain.com/about/person-name#person"
+  }
+}
+</script>
+
+TESTING:
+- Google Rich Results Test: https://search.google.com/test/rich-results
+- Search person name (check for Knowledge Panel)
+- Verify all sameAs links work
+- Confirm credentials display correctly
+- Test author attribution on articles
+*/

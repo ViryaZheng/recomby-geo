@@ -1,0 +1,191 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "[How to Do Something - Primary Keyword]",
+  "description": "[Brief overview of what will be accomplished - 150 characters]",
+  "image": {
+    "@type": "ImageObject",
+    "url": "[https://yourdomain.com/images/howto-image.jpg]",
+    "height": 406,
+    "width": 305
+  },
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "[Supply or Tool 1]"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "[Supply or Tool 2]"
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "[Tool or Software 1]"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "[Step 1 Title]",
+      "text": "[Detailed instruction for step 1. Be specific and actionable. Include any warnings or tips.]",
+      "image": "[https://yourdomain.com/images/step1.jpg]",
+      "url": "[https://yourdomain.com/article#step1]"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "[Step 2 Title]",
+      "text": "[Detailed instruction for step 2.]",
+      "image": "[https://yourdomain.com/images/step2.jpg]",
+      "url": "[https://yourdomain.com/article#step2]"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "[Step 3 Title]",
+      "text": "[Detailed instruction for step 3.]",
+      "image": "[https://yourdomain.com/images/step3.jpg]",
+      "url": "[https://yourdomain.com/article#step3]"
+    }
+  ],
+  "totalTime": "PT30M",
+  "video": {
+    "@type": "VideoObject",
+    "name": "[Video Title]",
+    "description": "[Video description]",
+    "thumbnailUrl": "[https://yourdomain.com/images/video-thumbnail.jpg]",
+    "contentUrl": "[https://yourdomain.com/videos/howto.mp4]",
+    "uploadDate": "[2025-01-15T10:00:00Z]"
+  }
+}
+
+/*
+USAGE NOTES:
+
+1. HowTo Schema Benefits:
+   - Voice search optimized (Google Assistant, Alexa)
+   - Step-by-step rich results in Google
+   - Featured in Google Discover
+   - High AI citation probability
+   - Mobile-friendly display
+
+2. Duration Format (ISO 8601):
+   - PT30M = 30 minutes
+   - PT1H = 1 hour
+   - PT2H30M = 2 hours 30 minutes
+   - PT45S = 45 seconds
+   - P1D = 1 day
+
+3. Step Requirements:
+   - Minimum 2 steps
+   - Each step needs: position, name, text
+   - Include images when possible
+   - Link to page sections (#step1, #step2)
+   - Keep text actionable and clear
+
+4. Images:
+   - Main image: 305×406px (vertical orientation)
+   - Step images: Any size, but consistent
+   - Use actual screenshots or photos
+   - Compress for fast loading
+
+5. Supply vs Tool:
+   - Supply: Consumable items (ingredients, materials)
+   - Tool: Reusable items (software, equipment)
+   - Optional but recommended for completeness
+
+6. Cost:
+   - Use "$0" for free methods
+   - Or: "currency": "USD", "value": "50"
+   - Can use range: "minValue": "20", "maxValue": "50"
+
+VOICE SEARCH OPTIMIZATION:
+
+Google Assistant reads:
+1. HowTo name
+2. Total time
+3. Each step in order
+4. Supplies/tools needed
+
+Optimization tips:
+- Use natural language in step names
+- Keep step text concise (2-3 sentences)
+- Include time estimates per step if long
+- Use action verbs (Create, Add, Configure, Test)
+
+EXAMPLES:
+
+Technical Tutorial:
+"name": "How to Optimize Website for AI Search Engines"
+"totalTime": "PT2H"
+"step": [
+  {
+    "position": 1,
+    "name": "Add FAQ Schema",
+    "text": "Create JSON-LD FAQ schema with 3-5 common questions. Place in <head> or before </body>."
+  }
+]
+
+Medical Process:
+"name": "How to Interpret Longevity Biomarker Results"
+"totalTime": "PT15M"
+"step": [
+  {
+    "position": 1,
+    "name": "Compare to Optimal Ranges",
+    "text": "Check LDL cholesterol against optimal target of <70 mg/dL, not standard lab reference of 100 mg/dL."
+  }
+]
+
+Business Process:
+"name": "How to Create Effective Client Proposals"
+"totalTime": "PT1H30M"
+"supply": ["Client requirements document", "Company template"]
+"tool": ["Microsoft Word", "Google Docs"]
+
+AI PLATFORM BENEFITS:
+
+ChatGPT:
+- Summarizes process steps
+- Extracts actionable instructions
+- Cites tutorial content
+- Prefers structured how-to format
+
+Perplexity:
+- Lists step-by-step instructions
+- Shows time estimates
+- Links to original guide
+- Displays supply/tool lists
+
+Claude:
+- Validates step logic
+- Checks completeness
+- Verifies actionability
+- Prefers clear sequencing
+
+Gemini:
+- Integrates with Google Discover
+- Shows in voice search results
+- Displays rich snippets
+- Prioritizes mobile experience
+
+PLACEMENT:
+Add to page with how-to content:
+<script type="application/ld+json">
+[PASTE JSON HERE]
+</script>
+
+TESTING:
+- Google Rich Results Test: https://search.google.com/test/rich-results
+- Test voice: "Hey Google, how to [your topic]"
+- Check mobile display
+- Verify step images load
+*/

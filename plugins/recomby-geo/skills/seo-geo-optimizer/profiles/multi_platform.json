@@ -1,0 +1,26 @@
+{
+  "name": "Multi-Platform Balanced",
+  "description": "Balanced optimization for all major AI platforms",
+  "platform": "multi",
+  "settings": {
+    "platforms": ["chatgpt", "perplexity", "claude", "gemini", "grokipedia"],
+    "min_word_count": 1200,
+    "update_frequency": "monthly",
+    "citation_style": "mixed",
+    "structure": "balanced",
+    "add_credentials": true,
+    "add_references": true,
+    "add_methodology": true,
+    "add_last_updated": true,
+    "add_version_history": true,
+    "add_testimonials": false
+  },
+  "targets": {
+    "word_count": "1200-2000",
+    "citations": "5-8 mixed (primary + authoritative)",
+    "structure": "H2→H3→bullets with FAQ",
+    "freshness": "Monthly updates",
+    "versioning": "Track major content updates"
+  },
+  "expected_impact": "Balanced visibility across all 5 AI platforms"
+}

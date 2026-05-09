@@ -1,0 +1,21 @@
+{
+  "name": "Perplexity Freshness",
+  "description": "Optimize for Perplexity with emphasis on freshness",
+  "platform": "perplexity",
+  "settings": {
+    "update_frequency": "weekly",
+    "citation_style": "inline_numbers",
+    "structure": "h2_h3_bullets",
+    "emphasis": "freshness",
+    "add_last_updated": true,
+    "prominent_date": true,
+    "inline_citations": true
+  },
+  "targets": {
+    "update_schedule": "Every 2-3 days (aggressive) or minimum 90 days",
+    "structure": "H2→H3→bullets (40% more citations)",
+    "citations": "Inline [1], [2] format",
+    "freshness": "Content updated within 30 days"
+  },
+  "expected_impact": "3.2x citations for fresh content"
+}
