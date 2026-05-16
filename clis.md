@@ -1,8 +1,10 @@
 # 办公 CLI 集合
 
-让 agent 接入业务数据 + 操作客户协作空间的 CLI / MCP server 列表，作为 AI 员工方案的「数据源 + 操作脚手架」一层。
+让 agent 接入业务数据 + 操作客户协作空间的**命令行工具**列表，作为 AI 员工方案的「数据源 + 操作脚手架」一层。
 
-> 📌 信息基于 2025-2026 自动调研，链接与许可证以官方页面为准。MCP（Model Context Protocol）是 Anthropic 提出、目前事实标准的 agent 工具协议。欢迎 PR 补充 / 勘误。
+CLI 是 agent（CC / Codex / Cline / Goose 等）通过 Bash 工具最自然的接入方式——任何 agent 只要能调 shell 就能用，不依赖额外协议层和配置。MCP 是补充。
+
+> 📌 信息基于 2025-2026 自动调研，链接与许可证以官方页面为准。欢迎 PR 补充 / 勘误。
 >
 > **Verified: 2026-05** — 所有条目最后核对于此日期；提交新条目 / 勘误时请同步更新自己条目的 verified 日期。
 
@@ -10,55 +12,57 @@
 
 ## 国内
 
-| 产品 | 链接 | 一句话定位 | CLI | MCP | 官方 / 社区 | 粒度 |
-|------|------|-----------|-----|-----|------------|------|
-| **飞书 (Lark)** | [larksuite/lark-openapi-mcp](https://github.com/larksuite/lark-openapi-mcp) | 官方 OpenAPI MCP，文档 / 日历 / 任务 / Base | ✓ | ✓ | 官方 | 读写 |
-| **钉钉 (DingTalk)** | [dingtalk-workspace-cli](https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli) | dws CLI，AI-native 设计 + 审计 | ✓ | ✓ | 官方 + 社区 | 读写 |
-| **企业微信** | [shellus/qiye_wechat_mcp](https://github.com/shellus/qiye_wechat_mcp) | 社区 MCP，企业消息 / 通讯录 | ✓ | ✓ | 社区 | 读写 |
-| **语雀 (Yuque)** | [yuque/yuque-mcp-server](https://github.com/yuque/yuque-mcp-server) | 官方 MCP，知识库读写 / 搜索 / 分析 | ✓ | ✓ | 官方 | 读写 |
+| 产品 | CLI | 来源 | 安装 | 链接 | MCP 备注 |
+|------|-----|------|------|------|---------|
+| **飞书 (Lark)** | `lark-cli` | 官方 | `npm i -g @larksuite/cli` | [larksuite/cli](https://github.com/larksuite/cli) | 同组织 [lark-openapi-mcp](https://github.com/larksuite/lark-openapi-mcp) 官方 MCP 可选用 |
+| **钉钉 (DingTalk)** | `dws` | 官方 | `npm i -g @dingtalk/cli` | [DingTalk-Real-AI/dingtalk-workspace-cli](https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli) | AI-native 设计，跳过确认 + 审计全链 |
+| **语雀 (Yuque)** | `yuque-cli` | 官方 | `npm i -g yuque-cli` | [yuque/yuque-cli](https://github.com/yuque/yuque-cli) | 同组织 [yuque-mcp-server](https://github.com/yuque/yuque-mcp-server) 官方 MCP 可选用 |
+| **企业微信** | — | 无官方 | — | — | 仅社区 MCP：[shellus/qiye_wechat_mcp](https://github.com/shellus/qiye_wechat_mcp) |
+| **微信（个人）** | `wechaty` (SDK) | 社区 | `npm i wechaty` | [wechaty/wechaty](https://github.com/wechaty/wechaty) | 个人微信无官方开放，wechaty 是 SDK 非 CLI |
 
 ---
 
 ## 国外
 
-| 产品 | 链接 | 一句话定位 | CLI | MCP | 粒度 |
-|------|------|-----------|-----|-----|------|
-| **Slack** | [docs.slack.dev/ai/slack-mcp-server](https://docs.slack.dev/ai/slack-mcp-server/) | 官方 MCP，搜索 / 消息 / Canvas | 第三方 | ✓ 官方 | 读写 |
-| **Notion** | [developers.notion.com/docs/mcp](https://developers.notion.com/docs/mcp) | 官方 MCP，页面 / 数据库完整操作 | 社区 | ✓ 官方 | 读写 |
-| **GitHub** | [github/github-mcp-server](https://github.com/github/github-mcp-server) | 官方 MCP，基于 `gh` CLI，PR / Issue / 代码 | ✓ (gh) | ✓ 官方 | 读写 |
-| **Linear** | [linear.app/docs/mcp](https://linear.app/docs/mcp) | 官方 MCP，任务 / 周期 / 项目 | 第三方 | ✓ 官方 | 读写 |
-| **Google Workspace** | [developers.google.com/workspace/guides/configure-mcp-servers](https://developers.google.com/workspace/guides/configure-mcp-servers) | 官方 MCP + CLI，Gmail / Drive / Calendar / Docs | ✓ | ✓ 官方 | 读写 |
-| **Jira / Confluence** | [atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server) | Atlassian 官方 MCP（GA），Issue / Page / Compass | 第三方 | ✓ 官方 | 读写 |
-| **Microsoft 365 / Teams** | [microsoft-agent-365](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview) | 官方 Work IQ MCP，邮件 / 日历 / Teams / 文档 | ✓ (m365 CLI) | ✓ 官方 | 读写 |
-| **ClickUp** | [developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server](https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server) | 官方 MCP + CLI，任务 / 列表 / 文档 | ✓ | ✓ 官方 | 读写 |
-| **Asana** | 社区实现 | 社区 MCP，任务 / 项目（官方尚无原生支持） | 待验证 | ✓ 社区 | 读写 |
+| 产品 | CLI | 来源 | 安装 | 链接 | MCP 备注 |
+|------|-----|------|------|------|---------|
+| **GitHub** | `gh` | 官方 | `brew install gh` | [cli/cli](https://github.com/cli/cli) | 官方 [github-mcp-server](https://github.com/github/github-mcp-server) 基于 `gh` |
+| **Slack** | `slack` | 官方 | `npm i -g @slack/cli` | [slackapi/slack-cli](https://github.com/slackapi/slack-cli) | 官方 [Slack MCP](https://docs.slack.dev/ai/slack-mcp-server/) 可选用 |
+| **Atlassian (Jira / Confluence)** | `jira-cli` | 社区主流 | `brew install jira-cli` | [ankitpokhrel/jira-cli](https://github.com/ankitpokhrel/jira-cli) | 官方 [atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server) 可选用 |
+| **Microsoft 365** | `m365` | 社区主流 (PnP) | `npm i -g @pnp/cli-microsoft365` | [pnp/cli-microsoft365](https://github.com/pnp/cli-microsoft365) | 官方 Work IQ MCP 可选用 |
+| **Google Workspace** | `clasp` (Apps Script) | 官方 | `npm i -g @google/clasp` | [google/clasp](https://github.com/google/clasp) | Workspace 完整面用[官方 MCP](https://developers.google.com/workspace/guides/configure-mcp-servers) |
+| **Notion** | — | 无官方 | — | — | 官方策略 API-first；用[官方 MCP](https://developers.notion.com/docs/mcp) |
+| **Linear** | — | 无官方 | — | — | 官方策略 API-first；用[官方 MCP](https://linear.app/docs/mcp) |
+| **ClickUp** | — | 社区废弃 | — | — | 用 [官方 MCP](https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server) |
+| **Asana** | — | 社区不活跃 | — | — | 仅社区 MCP |
 
 ---
 
-## 选型建议（用于本项目）
+## 选型建议
 
-按本项目 **数据不出本地 + 官方维护优先 + MCP 标准协议** 原则：
+按本项目 **CLI 优先 · 官方维护优先 · 数据不出本地** 原则：
 
-| 客户类型 | 首选 CLI / MCP |
-|----------|----------------|
-| 国内一般企业 | **飞书 MCP** + **钉钉 dws CLI** |
-| 国内技术团队 / 知识库重 | **语雀 MCP** + **飞书 MCP** |
-| 国外 SaaS 重度用户 | **Slack MCP** + **Notion MCP** + **GitHub MCP** |
-| 跨国企业 | **Microsoft 365 MCP** + **Google Workspace MCP** |
-| 研发驱动型 | **GitHub MCP** + **Linear MCP** + **Jira MCP** |
+| 客户类型 | 首选 |
+|----------|------|
+| 国内一般企业 | **飞书 `lark-cli`** + **钉钉 `dws`** |
+| 国内技术团队 / 知识库重 | **语雀 `yuque-cli`** + **飞书 `lark-cli`** |
+| 国外 SaaS 重度用户 | **Slack `slack`** + **GitHub `gh`** + Notion MCP |
+| 跨国企业 | **Microsoft 365 `m365`** + Google Workspace MCP |
+| 研发驱动型 | **GitHub `gh`** + **Jira `jira-cli`** + Linear MCP |
 
 ---
 
-## 关于 MCP
+## 为什么 CLI 优先（而不是 MCP）
 
-MCP（Model Context Protocol）是 Anthropic 提出的 agent 工具调用标准协议，现已被 OpenAI、Google、字节、腾讯等主流厂商支持。本集合优先收录支持 MCP 的实现，理由：
+- **通用性**：CLI 工具任何 agent 通过 Bash 都能调，不需要 agent 内置 MCP client
+- **可观测性**：CLI 输出是文本流，agent 直接读懂；MCP 调用是 JSON-RPC，调试链路长
+- **本地化天然**：CLI 工具直接在你的环境跑，跟「数据不出本地」对齐
+- **生态成熟**：shell 工具链是几十年沉淀，错误处理 / 重试 / pipe 都成熟
 
-- 跨 agent 通用（CC、Codex、Cline、Goose 等都能用同一 MCP server）
-- 协议层标准化，不绑死某一家 agent
-- 部署上 agent 跟 MCP server 都在本地，数据不上第三方云
+**MCP 是补充**：对 API-first 的产品（Notion、Linear、ClickUp 这种没官方 CLI 的），MCP 是接入路径；对有完整 CLI 的产品（飞书、钉钉、GitHub），CLI 更直接。
 
 ---
 
 ## 贡献
 
-新增 / 勘误：提交 PR 修改本文件。每条请提供：产品名、官方链接、≤30 字定位、是否有 CLI / MCP、官方还是社区维护、数据访问粒度（只读 / 读写）。
+新增 / 勘误：提交 PR 修改本文件。每条请提供：产品名、CLI 名（或"无"）、来源（官方 / 社区主流 / 社区不活跃 / 无）、安装命令、GitHub 链接、可选 MCP 备注。同步更新自己条目的 verified 日期。
