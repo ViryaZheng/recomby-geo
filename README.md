@@ -36,13 +36,13 @@
 
 ---
 
-## 我们的原创贡献：GEO Skills
+## 我们持续投入的主战场：GEO Skills
 
-> **`plugins/recomby-geo/`（commands + skills + schemas）是本项目真正的原创开源产物**，MIT 许可证，可商用、可修改、可分发。
+> **`plugins/recomby-geo/`（commands + skills + schemas）是本项目长期维护、未来持续优化的主要方向**，MIT 许可证，可商用、可修改、可分发。
 
-我们做的事是把 GEO 领域的专业知识封装成 agent 可调用的 skills，加上完整的 7 阶段协作工作流命令——这是仓库里**唯一我们写、我们维护、我们对外开源的核心资产**。
+我们做的事是把 GEO 领域的专业知识封装成 agent 可调用的 skills，加上完整的 7 阶段协作工作流命令——这是仓库里**我们持续投入、迭代、维护的核心资产**。其中很多结构和方法论参考了 Princeton KDD 2024、Auriti Labs、awesome-geo 等开源工作，我们做的是组装、打磨、面向 AI 员工场景重新封装。
 
-`agents.md` 和 `clis.md` 不是产品的另一部分——它们是**方案架构说明页**：讲清楚我们的 GEO skills 在「业务专家 + Agent + 办公 CLI + Skills」这套 AI 员工方案里处于什么位置，配合哪些 agent / CLI 工作。读者可以从那两页知道生态全貌，但**产品是 skills**。
+`agents.md` 和 `clis.md` 不是产品的另一部分——它们是**方案架构说明页**：讲清楚我们的 GEO skills 在「业务专家 + Agent + 办公 CLI + Skills」这套 AI 员工方案里处于什么位置，配合哪些 agent / CLI 工作。读者可以从那两页知道生态全貌，但**主战场是 skills**。
 
 ---
 
@@ -172,7 +172,7 @@ recomby-geo/
 
 ## License
 
-Recomby.ai 原创部分（7 个命令、4 个 Schema、orchestrator、本 README、agents.md、clis.md）采用 **MIT** 许可证，详见 [`LICENSE`](LICENSE)。
+本仓库由 Recomby.ai 维护，未来持续投入的主要方向是 `plugins/recomby-geo/`（commands、4 个 Schema、orchestrator、skills 选集）以及 agents.md / clis.md 两份方案架构页——这些组合方式与封装由我们完成（许多原始内容引自开源社区，见下文与 `THIRD_PARTY_LICENSES.md`），整体采用 **MIT** 许可证，详见 [`LICENSE`](LICENSE)。
 
 6 个 vendor skills 保留原始许可证（MIT / Apache 2.0），详见 [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md)。
 

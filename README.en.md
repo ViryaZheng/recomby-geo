@@ -31,19 +31,19 @@ Not "AI replacing employees", but **a virtual role assembled from four parts**. 
 | Business expert | You / client team | — |
 | Agent | CC / Codex / OpenCode / ... ecosystem | ✓ Collection → [`agents.md`](agents.md) |
 | Data + CLI scaffolding | Lark / DingTalk / Slack / Notion ... | ✓ Collection → [`clis.md`](clis.md) |
-| **GEO Skills** | **Recomby originals + vendored OSS** | ✓ Primary focus → [`plugins/recomby-geo/skills/`](plugins/recomby-geo/skills/) |
+| **GEO Skills** | **Maintained by Recomby + vendored OSS** | ✓ Primary focus → [`plugins/recomby-geo/skills/`](plugins/recomby-geo/skills/) |
 
 We do three things: **curate mainstream Agent CLIs, curate office CLIs (CN + global), package GEO domain skills**.
 
 ---
 
-## Our original contribution: GEO Skills
+## Our primary focus: GEO Skills
 
-> **`plugins/recomby-geo/` (commands + skills + schemas) is the project's actual original open-source product** — MIT-licensed, commercial-use OK, modify-and-redistribute OK.
+> **`plugins/recomby-geo/` (commands + skills + schemas) is the area we actively maintain and continue to invest in** — MIT-licensed, commercial-use OK, modify-and-redistribute OK.
 
-What we make is GEO domain expertise packaged as agent-callable skills, plus a complete 7-stage collaborative workflow. This is the **only thing in this repo we write, maintain, and open-source as our core asset**.
+What we do is package GEO domain knowledge into agent-callable skills, plus a complete 7-stage collaborative workflow. Much of the underlying structure and methodology draws from open-source work — Princeton KDD 2024 GEO paper, Auriti Labs, awesome-geo, and the vendored skills' upstream authors. What we add is the assembly, polish, and re-packaging for the AI-employee context.
 
-`agents.md` and `clis.md` are **not separate products** — they are **solution architecture pages**: they show where our GEO Skills fit in the "Business expert + Agent + Office CLI + Skills" AI-employee stack, and which agents / CLIs to pair them with. They give readers the ecosystem picture, but **the product is the Skills**.
+`agents.md` and `clis.md` are **not separate products** — they are **solution architecture pages**: they show where the GEO Skills fit in the "Business expert + Agent + Office CLI + Skills" AI-employee stack, and which agents / CLIs to pair them with. They give readers the ecosystem picture, but **the primary focus is the Skills**.
 
 ---
 
@@ -71,7 +71,7 @@ Under `plugins/recomby-geo/skills/` we package 6 GEO domain skills, **model-invo
 | `keyword-research` | toprank (MIT) | Keyword expansion |
 | `meta-tags-optimizer` | toprank (MIT) | Title / meta |
 
-Plus 7 original GEO workflow commands under `plugins/recomby-geo/commands/` (`/01-intake` through `/07-reaudit`) — together they form the complete GEO AI-employee capability pack. **This is our core open-source product.**
+Plus 7 GEO workflow commands under `plugins/recomby-geo/commands/` (`/01-intake` through `/07-reaudit`) — together they form the complete GEO AI-employee capability pack. **This is our primary focus area going forward.**
 
 Licensing: [`LICENSE`](LICENSE) and [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
 
@@ -172,7 +172,7 @@ recomby-geo/
 
 ## License
 
-Recomby.ai originals (7 commands, 4 schemas, orchestrator, this README, agents.md, clis.md) are released under the **MIT License**—see [`LICENSE`](LICENSE).
+This repo is maintained by Recomby.ai. Our primary focus going forward is `plugins/recomby-geo/` (commands, 4 schemas, orchestrator, skills selection) and the two architecture pages `agents.md` / `clis.md`. The assembly and packaging are ours (much of the underlying material is drawn from open-source community work; see below and `THIRD_PARTY_LICENSES.md`). The whole repo is released under the **MIT License**—see [`LICENSE`](LICENSE).
 
 The 6 vendored skills retain their original licenses (MIT / Apache 2.0); see [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
 
