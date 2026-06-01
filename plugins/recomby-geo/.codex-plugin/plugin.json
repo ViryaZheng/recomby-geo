@@ -3,9 +3,26 @@
   "version": "0.4.1",
   "description": "GEO (Generative Engine Optimization) workflow for OpenAI Codex CLI. The vendored capability skills (audit, content writing, schema, internal linking, keyword expansion, quality scoring, frontend design) plus the original geo-review-html renderer are loaded from ./skills/. The geo-pipeline skill is the Codex entry point: it orchestrates the 7-stage pipeline (intake → audit → gap → content-brief → production → distribution → reaudit) that Claude Code drives via /01-intake … /07-reaudit slash commands. Per-client folder convention; the stage specs live in commands/ and orchestrator/run.md (shared single source of truth).",
   "skills": "./skills/",
-  "author": "Recomby.ai",
+  "author": {
+    "name": "Recomby.ai",
+    "url": "https://github.com/recomby-ai"
+  },
   "homepage": "https://github.com/recomby-ai/recomby-geo",
   "repository": "https://github.com/recomby-ai/recomby-geo",
   "license": "MIT",
-  "keywords": ["geo", "aeo", "seo", "ai-search", "generative-engine-optimization", "content-orchestration", "ai-employee"]
+  "keywords": ["geo", "aeo", "seo", "ai-search", "generative-engine-optimization", "content-orchestration", "ai-employee"],
+  "interface": {
+    "displayName": "recomby-geo",
+    "shortDescription": "Local-first GEO workflow skills for Codex.",
+    "longDescription": "A Codex plugin for running a 7-stage Generative Engine Optimization workflow with domain skills, schema-checked artifacts, and business-expert review gates.",
+    "developerName": "Recomby.ai",
+    "category": "Marketing",
+    "capabilities": ["Skills", "Workflow", "Content"],
+    "websiteURL": "https://github.com/recomby-ai/recomby-geo",
+    "defaultPrompt": [
+      "Run GEO intake for clients/demo",
+      "Audit this client's AI search visibility",
+      "Create a GEO content brief"
+    ]
+  }
 }

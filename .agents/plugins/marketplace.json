@@ -10,6 +10,10 @@
         "source": "local",
         "path": "./plugins/recomby-geo"
       },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
       "description": "GEO (Generative Engine Optimization) workflow for Codex CLI. 7-stage pipeline (intake → audit → gap → content-brief → production → distribution → reaudit) driven by the geo-pipeline skill; 7 vendored capability skills + the geo-review-html client-review renderer; JSON-schema-checked artifacts; per-client folder convention. Mirrors the Claude Code plugin in this repo (./plugins/recomby-geo).",
       "version": "0.4.1",
       "category": "Marketing",
