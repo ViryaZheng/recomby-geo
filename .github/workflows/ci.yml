@@ -17,21 +17,18 @@ jobs:
           python-version: "3.12"
       - name: Install jsonschema
         run: pip install jsonschema
-      - name: Validate all 4 schemas (Draft 2020-12)
+      - name: Validate all schemas (Draft 2020-12)
         run: |
           python3 - <<'PY'
-          import json, sys
+          import json, glob, sys
           from jsonschema import Draft202012Validator
-          schemas = [
-              "plugins/recomby-geo/schemas/brand_context.schema.json",
-              "plugins/recomby-geo/schemas/visibility_baseline.schema.json",
-              "plugins/recomby-geo/schemas/content_priorities.schema.json",
-              "plugins/recomby-geo/schemas/attribution_diff.schema.json",
-          ]
+          schemas = sorted(glob.glob("plugins/recomby-geo/schemas/*.schema.json"))
+          assert schemas, "no schemas found"
           for s in schemas:
               with open(s) as f:
                   Draft202012Validator.check_schema(json.load(f))
               print(f"OK  {s}")
+          print(f"{len(schemas)} schemas validated")
           PY
 
   python-compile:

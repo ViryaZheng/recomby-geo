@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+  /* frontend-design pass: editorial paper aesthetic, NOT generic AI slop.
+     Serif prose, warm paper ground, restrained single accent, real motion. */
+  :root{
+    --accent:#b5471f; --accent-soft:#f3ddd2;
+    --paper:#faf8f3; --card:#fffdf9; --ink:#262017; --muted:#6f6657;
+    --slot:#fff6d4; --slot-bd:#e6c64d; --filled:#ecf5ec; --filled-bd:#bcdcc0;
+    --comment:#fff1e2; --comment-bd:#e8b889; --approve:#1f7a45; --line:#e7e0d2;
+    --shadow:0 1px 2px rgba(38,32,23,.06),0 8px 24px rgba(38,32,23,.07);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:17px/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    -webkit-font-smoothing:antialiased;padding-bottom:96px}
+  .chrome{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:780px;margin:0 auto;padding:44px 28px}
+  header.head{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:8px}
+  header.head .kicker{font:600 12px/1 ui-sans-serif,system-ui;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  header.head h1{margin:.1em 0 .35em;font-size:34px;line-height:1.1;letter-spacing:-.01em}
+  header.head .meta{font-family:ui-sans-serif,system-ui;font-size:13px;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:6px 16px}
+  .namebar{margin:22px 0;font-family:ui-sans-serif,system-ui}
+  .namebar label{display:block;font-size:12px;font-weight:600;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+  .namebar input{width:100%;max-width:320px;padding:9px 12px;border:1px solid var(--line);
+    border-radius:8px;background:var(--card);font:15px ui-sans-serif,system-ui}
+  section.block{margin:22px 0;border-radius:12px;padding:20px 22px;box-shadow:var(--shadow)}
+  section.prose{background:var(--filled);border:1px solid var(--filled-bd)}
+  section.prose h2,section.prose h3,section.prose h4{font-family:ui-sans-serif,system-ui;
+    letter-spacing:-.01em;margin:.2em 0 .5em}
+  section.prose h2{font-size:22px} section.prose h3{font-size:18px}
+  section.prose p{margin:.6em 0} section.prose ul,section.prose ol{margin:.5em 0 .5em 1.2em}
+  section.prose table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15px;
+    font-family:ui-sans-serif,system-ui}
+  section.prose th,section.prose td{border:1px solid var(--filled-bd);padding:7px 10px;text-align:left}
+  section.prose th{background:rgba(31,122,69,.08)}
+  section.prose code{background:rgba(38,32,23,.06);padding:1px 5px;border-radius:4px;font-size:.9em}
+  section.prose pre{background:#2c271d;color:#f3ecda;padding:14px;border-radius:8px;overflow:auto}
+  section.prose pre code{background:none;color:inherit}
+  .slot{background:var(--slot);border:1px solid var(--slot-bd);border-left:5px solid var(--slot-bd)}
+  .slot .slot-tag{font-family:ui-sans-serif,system-ui;font-size:11px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:#8a6d00}
+  .slot h3{font-family:ui-sans-serif,system-ui;margin:.3em 0 .2em;font-size:17px}
+  .slot .what{font-size:15.5px;margin:.4em 0 .6em}
+  .slot details{font-family:ui-sans-serif,system-ui;font-size:13.5px;margin:.4em 0;
+    border-top:1px dashed var(--slot-bd);padding-top:8px}
+  .slot details summary{cursor:pointer;color:#8a6d00;font-weight:600}
+  .slot details dl{margin:.5em 0} .slot details dt{font-weight:700;color:var(--muted);margin-top:.5em}
+  .slot details .bad{color:#9a3412} .slot details .good{color:var(--approve)}
+  .slot textarea{width:100%;min-height:120px;margin-top:10px;padding:12px;border:1px solid var(--slot-bd);
+    border-radius:8px;background:#fffdf3;font:15px/1.55 ui-sans-serif,system-ui;resize:vertical}
+  .slot textarea.has-content{border-color:var(--approve);background:#fbfff8}
+  .cmt{font-family:ui-sans-serif,system-ui;margin-top:14px}
+  .cmt button{background:none;border:1px solid var(--comment-bd);color:#a85a23;cursor:pointer;
+    font:600 12.5px ui-sans-serif,system-ui;padding:5px 11px;border-radius:999px;transition:.15s}
+  .cmt button:hover{background:var(--comment)}
+  .cmt button.has-content{background:var(--accent);border-color:var(--accent);color:#fff}
+  .cmt .box{display:none;margin-top:10px}
+  .cmt .box.open{display:block;animation:fade .18s ease}
+  .cmt textarea{width:100%;min-height:70px;padding:10px;border:1px solid var(--comment-bd);
+    border-radius:8px;background:var(--comment);font:14px ui-sans-serif,system-ui;resize:vertical}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .overall{background:var(--comment);border:1px solid var(--comment-bd);margin-top:30px}
+  .overall h3{font-family:ui-sans-serif,system-ui;margin:.1em 0 .5em;color:#a85a23}
+  .overall textarea{width:100%;min-height:90px;padding:12px;border:1px solid var(--comment-bd);
+    border-radius:8px;background:#fffaf4;font:15px ui-sans-serif,system-ui;resize:vertical}
+  /* index */
+  .cards{display:grid;gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+    box-shadow:var(--shadow);text-decoration:none;color:inherit;display:block;transition:.15s}
+  .card:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(38,32,23,.12)}
+  .card .ct{font-family:ui-sans-serif,system-ui;font-size:18px;font-weight:700;margin-bottom:4px}
+  .card .cf{font-family:ui-sans-serif,system-ui;font-size:13px;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:5px 14px;margin-bottom:10px}
+  .tag{display:inline-block;font:700 11px ui-sans-serif,system-ui;letter-spacing:.05em;
+    padding:3px 9px;border-radius:999px;text-transform:uppercase}
+  .tag.ready{background:#e6f4ea;color:#1f7a45} .tag.fill{background:var(--slot);color:#8a6d00}
+  .tag.crit{background:#fde2e2;color:#b42318} .tag.done{background:var(--accent);color:#fff}
+  .bar{height:7px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:4px}
+  .bar>i{display:block;height:100%;background:var(--approve);width:0;transition:width .4s}
+  /* sticky action bar */
+  .actionbar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,253,249,.96);
+    backdrop-filter:blur(8px);border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(38,32,23,.08);
+    font-family:ui-sans-serif,system-ui;z-index:50}
+  .actionbar .ab{max-width:780px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;
+    gap:14px;flex-wrap:wrap}
+  .progress{font-size:13px;color:var(--muted);font-weight:600;flex:1;min-width:140px}
+  .progress b{color:var(--ink)}
+  .btn{cursor:pointer;border:none;border-radius:9px;font:700 14px ui-sans-serif,system-ui;
+    padding:11px 18px;transition:.15s}
+  .btn.primary{background:var(--accent);color:#fff} .btn.primary:hover{filter:brightness(1.07)}
+  .btn.approve{background:var(--approve);color:#fff} .btn.approve:hover{filter:brightness(1.07)}
+  .btn.ghost{background:none;border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{background:#f0eadd}
+  .toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%) translateY(10px);opacity:0;
+    background:var(--ink);color:#fff;padding:10px 18px;border-radius:9px;font:14px ui-sans-serif,system-ui;
+    pointer-events:none;transition:.25s;z-index:60}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media print{.actionbar,.cmt button,.namebar{display:none}
+    body{padding-bottom:0;background:#fff}.slot{background:#fff;border:1px solid #ccc}
+    .cmt .box{display:block!important}details{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<div class="actionbar"><div class="ab" id="actions"></div></div>
+<div class="toast" id="toast"></div>
+
+<script id="payload" type="application/json">__PAYLOAD__</script>
+<script>
+(function(){
+  "use strict";
+  const D = JSON.parse(document.getElementById("payload").textContent);
+  const app = document.getElementById("app");
+  const actions = document.getElementById("actions");
+  const KEY = "geo-review:" + (D.brief_id || D.mode);
+  if (D.brand_color) document.documentElement.style.setProperty("--accent", D.brand_color);
+
+  // ---- persisted state -----------------------------------------------------
+  let state = {answers:{}, comments:{}, name:""};
+  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) state = Object.assign(state, s); } catch(e){}
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
+
+  const esc = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const toast = m => { const t=document.getElementById("toast"); t.textContent=m; t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"),1800); };
+  const download = (name, text, type) => {
+    const b=new Blob([text],{type:type||"application/octet-stream"}), u=URL.createObjectURL(b);
+    const a=document.createElement("a"); a.href=u; a.download=name; a.click(); URL.revokeObjectURL(u);
+  };
+
+  // ---- comment widget (shared) --------------------------------------------
+  function commentWidget(id){
+    const wrap=document.createElement("div"); wrap.className="cmt";
+    const has=!!(state.comments[id]||"").trim();
+    const btn=document.createElement("button");
+    btn.textContent=(has?"💬 comment ✓":"💬 comment"); if(has) btn.classList.add("has-content");
+    const box=document.createElement("div"); box.className="box"+(has?" open":"");
+    const ta=document.createElement("textarea"); ta.placeholder="Comment on this section…";
+    ta.value=state.comments[id]||"";
+    ta.addEventListener("input",()=>{ state.comments[id]=ta.value; save();
+      const h=!!ta.value.trim(); btn.classList.toggle("has-content",h);
+      btn.textContent=h?"💬 comment ✓":"💬 comment"; });
+    btn.addEventListener("click",()=>box.classList.toggle("open"));
+    box.appendChild(ta); wrap.appendChild(btn); wrap.appendChild(box); return wrap;
+  }
+
+  // ---- header --------------------------------------------------------------
+  function header(){
+    const h=document.createElement("header"); h.className="head chrome";
+    const meta=D.meta||{}; const bits=[];
+    if(D.client_name) bits.push(esc(D.client_name));
+    if(meta.format) bits.push("Format: "+esc(meta.format));
+    if(meta.word_count) bits.push(meta.word_count+" words");
+    if(meta.status) bits.push("Status: "+esc(meta.status));
+    h.innerHTML='<div class="kicker">'+(D.mode==="brief"?"Content brief · for your input":
+      D.mode==="draft"?"Draft · for your review":"GEO review")+'</div>'+
+      '<h1>'+esc(D.brief_id||D.client_name||"GEO review")+'</h1>'+
+      '<div class="meta">'+bits.map(b=>"<span>"+b+"</span>").join("")+'</div>';
+    return h;
+  }
+  function nameBar(){
+    const d=document.createElement("div"); d.className="namebar";
+    d.innerHTML='<label>Your name (saved with your feedback)</label>';
+    const inp=document.createElement("input"); inp.type="text"; inp.placeholder="e.g. Jane Doe, Founder";
+    inp.value=state.name||"";
+    inp.addEventListener("input",()=>{state.name=inp.value;save();});
+    d.appendChild(inp); return d;
+  }
+
+  // ---- renderers -----------------------------------------------------------
+  function renderProse(s){
+    const sec=document.createElement("section"); sec.className="block prose";
+    sec.innerHTML=s.html;
+    sec.appendChild(commentWidget(s.id));
+    return sec;
+  }
+  function renderSlot(s){
+    const sec=document.createElement("section"); sec.className="block slot";
+    let det="";
+    if(s.why||s.bad||s.good){
+      det='<details><summary>What goes here / why / examples</summary><dl>'+
+        (s.why?'<dt>Why it matters for GEO</dt><dd>'+esc(s.why)+'</dd>':'')+
+        (s.bad?'<dt class="bad">Bad fill (rejected)</dt><dd class="bad">'+esc(s.bad)+'</dd>':'')+
+        (s.good?'<dt class="good">Good fill (accepted)</dt><dd class="good">'+esc(s.good)+'</dd>':'')+
+        '</dl></details>';
+    }
+    sec.innerHTML='<div class="slot-tag">Required · '+esc(s.id)+(s.asset_type?' · '+esc(s.asset_type):'')+'</div>'+
+      '<h3>What goes here</h3><div class="what">'+esc(s.what||"")+'</div>'+det;
+    const ta=document.createElement("textarea");
+    ta.placeholder="Write your real data / quote / case here…";
+    ta.value=state.answers[s.id]||"";
+    if(ta.value.trim()) ta.classList.add("has-content");
+    ta.addEventListener("input",()=>{state.answers[s.id]=ta.value;
+      ta.classList.toggle("has-content",!!ta.value.trim()); save(); updateProgress();});
+    sec.appendChild(ta);
+    return sec;
+  }
+  function overallBox(){
+    const d=document.createElement("section"); d.className="block overall chrome";
+    d.innerHTML='<h3>Overall comments</h3>';
+    const ta=document.createElement("textarea");
+    ta.placeholder="Anything for the whole piece — direction, concerns, approvals…";
+    ta.value=state.comments.overall||"";
+    ta.addEventListener("input",()=>{state.comments.overall=ta.value;save();});
+    d.appendChild(ta); return d;
+  }
+
+  // ---- progress / export ---------------------------------------------------
+  const slots = (D.sections||[]).filter(s=>s.type==="slot");
+  function filledCount(){ return slots.filter(s=>(state.answers[s.id]||"").trim()).length; }
+  function updateProgress(){
+    const el=document.getElementById("progress"); if(!el) return;
+    const f=filledCount(), t=slots.length;
+    el.innerHTML="<b>"+f+"</b> of <b>"+t+"</b> slots filled";
+  }
+  function exportFeedback(status){
+    return JSON.stringify({
+      brief_id: D.brief_id, filled_at: new Date().toISOString(),
+      filled_by: state.name||"", answers: state.answers, comments: state.comments,
+      status: status
+    }, null, 2);
+  }
+
+  // ---- mode: brief / draft / index ----------------------------------------
+  if(D.mode==="brief" || D.mode==="draft"){
+    app.appendChild(header());
+    if(D.mode==="brief") app.appendChild(nameBar());
+    (D.sections||[]).forEach(s=>app.appendChild(s.type==="slot"?renderSlot(s):renderProse(s)));
+    if(D.mode==="draft") app.insertBefore(nameBar(), app.children[1]);
+    app.appendChild(overallBox());
+
+    if(D.mode==="brief"){
+      actions.innerHTML='<div class="progress" id="progress"></div>';
+      const j=document.createElement("button"); j.className="btn primary";
+      j.textContent="Save my answers + comments as JSON";
+      j.onclick=()=>{ const f=filledCount(), t=slots.length;
+        download((D.brief_id||"brief")+".feedback.json",
+          exportFeedback(f>=t&&t>0?"reviewed-with-comments":"partial-fill"),"application/json");
+        toast("Feedback JSON downloaded — send it back to your GEO operator"); };
+      const h=document.createElement("button"); h.className="btn ghost";
+      h.textContent="Save filled brief as HTML";
+      h.onclick=()=>{ download((D.brief_id||"brief")+".filled.html",
+        "<!DOCTYPE html>"+document.documentElement.outerHTML,"text/html");
+        toast("Filled HTML downloaded"); };
+      actions.appendChild(j); actions.appendChild(h); updateProgress();
+    } else {
+      actions.innerHTML='<div class="progress">Review the draft, comment per section, then choose:</div>';
+      const j=document.createElement("button"); j.className="btn primary";
+      j.textContent="Save feedback as JSON";
+      j.onclick=()=>{ download((D.brief_id||"draft")+".feedback.json",
+        exportFeedback("reviewed-with-comments"),"application/json");
+        toast("Feedback JSON downloaded"); };
+      const a=document.createElement("button"); a.className="btn approve";
+      a.textContent="✓ Approve as-is";
+      a.onclick=()=>{ download((D.brief_id||"draft")+".feedback.json",
+        exportFeedback("approved-as-is"),"application/json");
+        toast("Approved — JSON downloaded"); };
+      actions.appendChild(j); actions.appendChild(a);
+    }
+  } else { // index
+    app.appendChild(header());
+    const cal=[];
+    const cards=document.createElement("div"); cards.className="cards";
+    (D.items||[]).forEach(it=>{
+      const a=document.createElement("a"); a.className="card chrome"; a.href=it.href;
+      let pct=0, tag='<span class="tag ready">Publish-ready</span>';
+      if(it.slot_count>0){
+        // live progress from this brief's own localStorage
+        let live=it.filled_count;
+        try{ const s=JSON.parse(localStorage.getItem("geo-review:"+it.id));
+          if(s&&s.answers) live=Object.values(s.answers).filter(v=>String(v).trim()).length; }catch(e){}
+        pct=Math.round(100*live/it.slot_count);
+        tag='<span class="tag fill">Needs fill · '+live+'/'+it.slot_count+'</span>';
+      } else if(it.status&&/ready/.test(it.status)){ tag='<span class="tag ready">Publish-ready</span>'; }
+      const cf=[]; if(it.format)cf.push("Format: "+esc(it.format));
+      if(it.word_count)cf.push(it.word_count+" words");
+      if(it.slot_count)cf.push(it.slot_count+" slots");
+      a.innerHTML='<div class="ct">'+esc(it.id)+' '+tag+'</div>'+
+        '<div class="cf">'+cf.map(x=>"<span>"+x+"</span>").join("")+'</div>'+
+        (it.slot_count>0?'<div class="bar"><i style="width:'+pct+'%"></i></div>':'');
+      cards.appendChild(a);
+      cal.push({id:it.id, status:it.status, kind:it.kind});
+    });
+    app.appendChild(cards);
+    actions.innerHTML='<div class="progress">'+(D.items||[]).length+
+      ' item(s) · progress reads from your saved answers · refresh to update</div>';
+  }
+
+  // refresh index progress when tab regains focus
+  if(D.mode==="index") window.addEventListener("focus",()=>location.reload());
+})();
+</script>
+</body>
+</html>

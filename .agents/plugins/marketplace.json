@@ -1,0 +1,19 @@
+{
+  "name": "recomby-geo",
+  "interface": {
+    "displayName": "recomby-geo (GEO workflow)"
+  },
+  "plugins": [
+    {
+      "name": "recomby-geo",
+      "source": {
+        "source": "local",
+        "path": "./plugins/recomby-geo"
+      },
+      "description": "GEO (Generative Engine Optimization) workflow for Codex CLI. 7-stage pipeline (intake → audit → gap → content-brief → production → distribution → reaudit) driven by the geo-pipeline skill; 7 vendored capability skills + the geo-review-html client-review renderer; JSON-schema-checked artifacts; per-client folder convention. Mirrors the Claude Code plugin in this repo (./plugins/recomby-geo).",
+      "version": "0.4.1",
+      "category": "Marketing",
+      "keywords": ["geo", "aeo", "seo", "ai-search", "generative-engine-optimization", "ai-employee"]
+    }
+  ]
+}

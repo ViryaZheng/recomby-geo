@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomby.ai/schemas/review_feedback.schema.json",
+  "title": "Review feedback",
+  "description": "JSON exported by the interactive review HTML (geo-review-html skill) when a client/expert fills a brief or reviews a draft. Ingested by 04-content-brief Step 9. answers carry the human's real input and are NEVER AI-generated.",
+  "type": "object",
+  "required": ["brief_id", "filled_at", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "brief_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Matches the priority_id / brief id this feedback belongs to."
+    },
+    "filled_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp set by the browser at export."
+    },
+    "filled_by": {
+      "type": "string",
+      "description": "Reviewer's name as entered in the HTML (may be empty)."
+    },
+    "answers": {
+      "type": "object",
+      "description": "slot_id -> expert-supplied content. Keys match REQUIRED-FILL slot ids.",
+      "additionalProperties": { "type": "string" }
+    },
+    "comments": {
+      "type": "object",
+      "description": "comment-target-id -> comment text. 'overall' is the whole-piece comment; other keys are section ids.",
+      "additionalProperties": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["reviewed-with-comments", "approved-as-is", "partial-fill"],
+      "description": "reviewed-with-comments: all slots filled and/or comments left; approved-as-is: draft accepted unchanged; partial-fill: brief returned with some slots still empty."
+    }
+  }
+}

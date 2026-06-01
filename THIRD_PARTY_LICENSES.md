@@ -1,6 +1,6 @@
 # Third-Party Licenses
 
-`recomby-geo` bundles 6 open-source Claude skills and 2 sets of reference
+`recomby-geo` bundles 7 open-source Claude skills and 2 sets of reference
 documentation, all under permissive licenses (MIT / Apache 2.0 / CC0).
 
 The original `LICENSE` file from each upstream is preserved either inside
@@ -9,7 +9,7 @@ below by repo URL.
 
 ---
 
-## Vendored skills (6, one per capability)
+## Vendored skills (7, one per capability)
 
 ### `seo-geo-optimizer`
 - **Upstream**: [`199-biotechnologies/claude-skill-seo-geo-optimizer`](https://github.com/199-biotechnologies/claude-skill-seo-geo-optimizer)
@@ -46,6 +46,15 @@ below by repo URL.
 - **What it brings**: link-equity-aware internal linking framework.
 - **Source path**: `optimize/internal-linking-optimizer/`
 
+### `frontend-design`
+- **Upstream**: [`anthropics/skills`](https://github.com/anthropics/skills/tree/main/skills/frontend-design)
+- **License**: Apache 2.0, © Anthropic (commit `da20c92`)
+- **What it brings**: prompt-only design guidance (typography, color,
+  motion, spatial composition) that steers the model away from generic
+  "AI slop" aesthetics when generating the client-review HTML in
+  `04-content-brief` / `05-production`. Pure markdown, no scripts.
+- **LICENSE preserved at**: `plugins/recomby-geo/skills/frontend-design/LICENSE.txt`
+
 ---
 
 ## Vendored reference documentation
@@ -80,8 +89,9 @@ cp -r /tmp/toprank/seo/content-writer plugins/recomby-geo/skills/content-writer
 
 ## Recomby.ai original code
 
-Skills `01-intake`, `02-audit`, `03-gap`, `04-content-brief`,
-`05-production`, `06-distribution`, `07-reaudit`, the four JSON schemas,
-the orchestrator, and `THIRD_PARTY_LICENSES.md` itself are © Recomby.ai
+Commands `01-intake`, `02-audit`, `03-gap`, `04-content-brief`,
+`05-production`, `06-distribution`, `07-reaudit`, the `geo-review-html`
+skill, the JSON schemas, the orchestrator, and `THIRD_PARTY_LICENSES.md`
+itself are © Recomby.ai
 and licensed under the same terms as this plugin's top-level LICENSE
 (see repository root, finalized before public release).

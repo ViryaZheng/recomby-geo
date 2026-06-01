@@ -4,7 +4,7 @@
 
 把 Agent、办公 CLI、GEO 专业知识 skills 整合成一套**协作型 AI 员工方案**——给你的 agent 装上 GEO skills，让它跟你的业务专家一起干 GEO 协作活儿。
 
-> alpha · 零外部依赖 · 零 API Key  ·  [English](README.en.md)
+> alpha · 零外部依赖 · 零 API Key  ·  [安装与使用](INSTALL.md)  ·  [English](README.en.md)
 
 ---
 

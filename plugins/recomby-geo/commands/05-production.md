@@ -28,6 +28,9 @@ rewrite rules.
 - `clients/<slug>/drafts/<id>.meta.json` — machine-readable metadata
   (word count, citation count, statistics count, quote count, voice-match
   score, GEO-readiness checklist).
+- `clients/<slug>/drafts/<id>.html` — interactive review version for the
+  client (section-level comments + approve-as-is), rendered by the
+  `geo-review-html` skill.
 
 ---
 
@@ -133,6 +136,23 @@ Record in meta.
 - `clients/<slug>/drafts/<id>.md`
 - `clients/<slug>/drafts/<id>.meta.json`
 
+Then render the client review HTML via the `geo-review-html` skill (draft
+mode: read-only prose, per-section comment toggles, `✓ Approve as-is`):
+
+```bash
+python3 plugins/recomby-geo/skills/geo-review-html/scripts/render_html.py \
+  --mode draft \
+  --md   clients/<slug>/drafts/<id>.md \
+  --meta clients/<slug>/drafts/<id>.meta.json \
+  --brand clients/<slug>/brand_context.json \
+  --out  clients/<slug>/drafts/<id>.html
+```
+
+A returned `*.feedback.json` (status `approved-as-is` or
+`reviewed-with-comments`) validates against
+`schemas/review_feedback.schema.json`; route comments back into a revision
+or to 06-distribution.
+
 ### Step 8 — Self-review
 
 Run a second pass on the draft asking: "would I cite this if I were
@@ -168,6 +188,8 @@ silently rewrite — surface to user as suggested edits.
   densification helper for Step 4 step 3.
 - `references/auriti/princeton-geo-methods.md` — Princeton KDD 2024
   rewrite passes (Step 4) empirical foundation.
+- `geo-review-html` (original) — renders the draft review HTML in Step 7
+  (draft mode) and defines the `*.feedback.json` approve/comment contract.
 
 ---
 

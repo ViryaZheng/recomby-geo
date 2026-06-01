@@ -28,6 +28,9 @@ spaces. Until those blanks are filled, 05-production refuses to run.
   REQUIRED-FILL slots clearly marked.
 - `clients/<slug>/briefs/<priority-id>.meta.json` — machine-readable
   metadata: which slots are filled, by whom, when.
+- `clients/<slug>/briefs/<priority-id>.html` — interactive fill-form for
+  the client/expert (rendered by the `geo-review-html` skill; this is the
+  artifact the reviewer actually opens, not the `.md`).
 
 ---
 
@@ -181,6 +184,30 @@ Meta JSON layout:
 }
 ```
 
+Then render the interactive fill-form HTML via the `geo-review-html` skill —
+this is the artifact you hand to the client/expert (the `.md` is for the
+operator). The skill keeps the interaction logic fixed and applies
+`frontend-design` for visual quality:
+
+```bash
+python3 plugins/recomby-geo/skills/geo-review-html/scripts/render_html.py \
+  --mode brief \
+  --md   clients/<slug>/briefs/<id>.md \
+  --meta clients/<slug>/briefs/<id>.meta.json \
+  --brand clients/<slug>/brand_context.json \
+  --out  clients/<slug>/briefs/<id>.html
+```
+
+Then (re)build the client entry page so the new brief shows up with live
+progress:
+
+```bash
+python3 plugins/recomby-geo/skills/geo-review-html/scripts/render_html.py \
+  --mode index --client-dir clients/<slug> \
+  --brand clients/<slug>/brand_context.json \
+  --out clients/<slug>/briefs/index.html
+```
+
 ### Step 8 — Notify the user
 
 Output: full brief file path, list of slot ids needing fill, suggested
@@ -205,7 +232,21 @@ assignee (if Recomby team has roles configured), suggested due date
 
 ### Step 9 — Filling protocol (run when expert returns the brief)
 
-When the expert returns a filled brief:
+The expert can return work two ways: an edited `.md`, or a `*.feedback.json`
+exported from the interactive HTML (preferred — it's what non-technical
+reviewers use).
+
+**If a `*.feedback.json` came back** (validate it against
+`schemas/review_feedback.schema.json` first):
+1. For each key in `answers`, replace the matching `REQUIRED-FILL · <id>`
+   block in `briefs/<id>.md` with the expert's text, keeping the `<id>` so
+   05-production can still read it. The `answers` values are the human's
+   real input — paste them verbatim, do not rewrite them.
+2. Preserve `comments` (overall + per-section) in the hand-off to the user
+   so the operator sees the reviewer's notes.
+3. Then run steps 1–4 below against the now-filled `.md`.
+
+**General protocol (both paths):**
 1. Re-read the brief. For each slot id, verify the REQUIRED-FILL block
    has been replaced with substantive content.
 2. Update `briefs/<id>.meta.json` slots[].filled = true and record
@@ -227,6 +268,10 @@ When the expert returns a filled brief:
   extraction (`scripts/entity_extractor.py`) for citation pre-population.
 - `references/auriti/princeton-geo-methods.md` — empirical justification
   for the statistics + quotation + citation mandatory blocks.
+- `geo-review-html` (original) — renders the interactive fill-form HTML in
+  Step 7 and defines the `*.feedback.json` contract ingested in Step 9.
+- `frontend-design` (vendored from anthropics/skills) — visual quality of
+  the review HTML; restyle the template's CSS with it for client branding.
 
 ---
 
