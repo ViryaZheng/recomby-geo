@@ -4,7 +4,7 @@
 
 A curated hub that bundles Agents, office CLIs, and GEO domain skills into a **collaborative AI-employee solution**—equip your agent with GEO skills, then let it collaborate with your business expert on real GEO work.
 
-> alpha · zero external deps · zero API keys · [中文版](README.md)
+> alpha · zero external deps · zero API keys · [Changelog](CHANGELOG.md) · [中文版](README.md)
 
 ---
 
