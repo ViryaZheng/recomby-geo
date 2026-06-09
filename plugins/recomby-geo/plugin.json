@@ -1,6 +1,6 @@
 {
   "name": "recomby-geo",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "GEO reference implementation from the recomby-geo hub (agents.md / clis.md / skills collection for domain AI employees). 7 slash commands (/01-intake → /07-reaudit) drive a collaborative workflow; 7 vendored open-source skills (audit, content writing, schema, internal linking, keyword expansion, quality scoring, frontend design) supply the commodity capabilities; one original skill (geo-review-html) renders interactive client-review HTML for briefs and drafts. Per-client folder convention.",
   "author": {
     "name": "Recomby.ai"

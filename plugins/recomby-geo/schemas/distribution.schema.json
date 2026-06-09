@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomby.ai/schemas/distribution.schema.json",
+  "title": "Distribution plan",
+  "description": "distribution/<id>.json — written by 06-distribution Step 6. Carries the JSON-LD, internal/back-link plans, external outreach targets, the llms.txt fragment, and publish-tracking fields.",
+  "type": "object",
+  "required": ["priority_id", "draft_id"],
+  "additionalProperties": true,
+  "properties": {
+    "priority_id": { "type": "string", "minLength": 1 },
+    "draft_id": { "type": "string", "minLength": 1 },
+    "generated_at": { "type": "string" },
+    "schema_jsonld": { "type": "object" },
+    "internal_link_plan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "anchor": { "type": "string" },
+          "target_url": { "type": "string" },
+          "position": { "type": "string", "enum": ["intro", "body", "conclusion"] },
+          "required": { "type": "boolean" }
+        }
+      }
+    },
+    "back_link_adds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "from_url": { "type": "string" },
+          "to_anchor": { "type": "string" },
+          "rationale": { "type": "string" }
+        }
+      }
+    },
+    "external_targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "type": { "type": "string" },
+          "url": { "type": "string" },
+          "action": { "type": "string" },
+          "tone": { "type": "string" }
+        }
+      }
+    },
+    "llms_txt_fragment": { "type": "string" },
+    "publish_url_planned": { "type": ["string", "null"] },
+    "published_at": { "type": ["string", "null"] },
+    "published_url": { "type": ["string", "null"] }
+  }
+}

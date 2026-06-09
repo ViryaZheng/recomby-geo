@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomby.ai/schemas/draft_meta.schema.json",
+  "title": "Draft meta",
+  "description": "drafts/<id>.meta.json — written by 05-production Step 6, read by 06-distribution and by geo-review-html (format/status/word_count drive the review HTML header).",
+  "type": "object",
+  "required": ["priority_id", "status"],
+  "additionalProperties": true,
+  "properties": {
+    "priority_id": { "type": "string", "minLength": 1 },
+    "draft_path": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "format": { "type": "string" },
+    "word_count": { "type": "integer", "minimum": 0 },
+    "stats": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "citations": { "type": "integer", "minimum": 0 },
+        "statistics_count": { "type": "integer", "minimum": 0 },
+        "quotes_count": { "type": "integer", "minimum": 0 },
+        "internal_link_slots": { "type": "integer", "minimum": 0 },
+        "external_links": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "voice_match_score": { "type": "number" },
+    "geo_readiness": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "has_definition_block": { "type": "boolean" },
+        "has_faq_block": { "type": "boolean" },
+        "has_comparison_table": { "type": "boolean" },
+        "has_methodology_section": { "type": "boolean" },
+        "answer_first_within_200_words": { "type": "boolean" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft-ready", "in-review", "approved", "revising"],
+      "description": "draft-ready: written by 05; in-review/approved/revising: set as the client review (geo-review-html) progresses. Lowercase-hyphen, case-sensitive."
+    }
+  }
+}

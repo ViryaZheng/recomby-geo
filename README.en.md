@@ -161,8 +161,8 @@ recomby-geo/
 │   ├── plugin.json
 │   ├── orchestrator/run.md           # full run flow
 │   ├── commands/                     # 7 workflow commands
-│   ├── skills/                       # 6 vendored skills
-│   ├── schemas/                      # 4 JSON Schemas
+│   ├── skills/                       # 7 vendored + original skills
+│   ├── schemas/                      # 8 JSON Schemas
 │   └── references/                   # Princeton GEO, etc.
 ├── THIRD_PARTY_LICENSES.md
 └── .gitignore
@@ -172,9 +172,9 @@ recomby-geo/
 
 ## License
 
-This repo is maintained by Recomby.ai. Our primary focus going forward is `plugins/recomby-geo/` (commands, 4 schemas, orchestrator, skills selection) and the two architecture pages `agents.md` / `clis.md`. The assembly and packaging are ours (much of the underlying material is drawn from open-source community work; see below and `THIRD_PARTY_LICENSES.md`). The whole repo is released under the **MIT License**—see [`LICENSE`](LICENSE).
+This repo is maintained by Recomby.ai. Our primary focus going forward is `plugins/recomby-geo/` (commands, 8 schemas, orchestrator, skills selection) and the two architecture pages `agents.md` / `clis.md`. The assembly and packaging are ours (much of the underlying material is drawn from open-source community work; see below and `THIRD_PARTY_LICENSES.md`). The whole repo is released under the **MIT License**—see [`LICENSE`](LICENSE).
 
-The 6 vendored skills retain their original licenses (MIT / Apache 2.0); see [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
+The 7 vendored skills retain their original licenses (MIT / Apache 2.0); the original skill (geo-review-html) ships under the repo's MIT license; see [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
 
 ---
 
@@ -251,7 +251,7 @@ python3 -c "import json,jsonschema; \
 ## Handoff — for the next agent picking this up
 
 **The 30-second mental model**:
-> Per-client folder + 7 numbered slash commands that each write a JSON file with a schema contract. Stages CALL the 6 vendored commodity skills. Brief status is a hard gate—drafts won't generate from an unfilled brief. Audit baselines are Claude-only; 7-day re-index buffer; same query set across rounds for diff-ability.
+> Per-client folder + 7 numbered slash commands that each write a JSON file with a schema contract. Stages CALL the 7 vendored commodity skills (plus the original geo-review-html renderer). Brief status is a hard gate—drafts won't generate from an unfilled brief. Audit baselines are Claude-only; 7-day re-index buffer; same query set across rounds for diff-ability.
 
 **Where to look first when something seems wrong**:
 1. `clients/<slug>/<stage>.json` — does it validate against the schema?

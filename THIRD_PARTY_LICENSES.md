@@ -91,7 +91,7 @@ cp -r /tmp/toprank/seo/content-writer plugins/recomby-geo/skills/content-writer
 
 Commands `01-intake`, `02-audit`, `03-gap`, `04-content-brief`,
 `05-production`, `06-distribution`, `07-reaudit`, the `geo-review-html`
-skill, the JSON schemas, the orchestrator, and `THIRD_PARTY_LICENSES.md`
+and `geo-pipeline` skills, the JSON schemas, the orchestrator, and `THIRD_PARTY_LICENSES.md`
 itself are © Recomby.ai
 and licensed under the same terms as this plugin's top-level LICENSE
 (see repository root, finalized before public release).

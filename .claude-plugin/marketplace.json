@@ -9,8 +9,8 @@
     {
       "name": "recomby-geo",
       "source": "./plugins/recomby-geo",
-      "description": "Self-contained GEO (Generative Engine Optimization) plugin: 7 slash commands orchestrate the pipeline (/01-intake → /07-reaudit), 6 canonical vendored skills supply commodity capabilities (audit, content writing, schema, internal linking, keyword expansion, quality scoring), 4 JSON schemas. Zero external deps, zero API keys for the default flow. Per-client folder convention.",
-      "version": "0.3.0",
+      "description": "Self-contained GEO (Generative Engine Optimization) plugin: 7 slash commands orchestrate the pipeline (/01-intake → /07-reaudit), 7 vendored open-source skills supply commodity capabilities (audit, content writing, schema, internal linking, keyword expansion, quality scoring, frontend design) plus one original skill (geo-review-html) that renders interactive client-review HTML, 8 JSON schemas. Zero external deps, zero API keys for the default flow. Per-client folder convention.",
+      "version": "0.4.2",
       "category": "marketing",
       "tags": ["geo", "aeo", "seo", "ai-search", "content-orchestration"]
     }

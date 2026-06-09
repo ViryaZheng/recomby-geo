@@ -135,7 +135,7 @@ Brief MD layout:
 > Priority id: <id>
 > Generated: <ISO ts>
 > Format: <recommended_format>
-> Status: AWAITING-EXPERT-FILL
+> Status: awaiting-expert-fill
 
 ## Angle
 <chosen angle, one paragraph>
@@ -221,7 +221,10 @@ assignee (if Recomby team has roles configured), suggested due date
 1. **Brief never gets shipped without expert fill** — 05-production reads
    `briefs/<id>.meta.json` and refuses to run if `status !=
    ready-for-production`. The status flips only when all `slots[*].filled
-   == true` (see Step 9).
+   == true` (see Step 9). Validate `briefs/<id>.meta.json` against
+   `schemas/brief_meta.schema.json` after every write — the status enum
+   (`awaiting-expert-fill` | `ready-for-production`, lowercase, case-sensitive)
+   is the production gate and must match exactly.
 2. **No AI-fillable slots** — every REQUIRED-FILL slot must be something
    that requires the brand's specific knowledge. If GPT-4 with Google
    could fill it, replace it with a tighter slot.

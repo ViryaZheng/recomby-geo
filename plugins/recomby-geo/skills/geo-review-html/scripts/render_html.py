@@ -117,18 +117,21 @@ def parse_brief(md, slot_ids):
     """Return ordered list of {type: prose|slot, ...}. Splits the brief on
     REQUIRED-FILL blockquote blocks; the slot list from meta is authoritative
     for which ids exist and their fill state."""
-    sections, buf, cur_heading = [], [], None
+    sections, buf, cur_heading, cur_heading_md = [], [], None, None
 
     def flush_prose():
         nonlocal buf
         body = "\n".join(buf).strip()
         if body:
             sid = re.sub(r"[^a-z0-9]+", "-", (cur_heading or "section").lower()).strip("-")
+            # The template renders only s.html (it ignores s.heading), so the
+            # section heading must live inside the html or it is lost.
+            md_block = (cur_heading_md + "\n\n" + body) if cur_heading_md else body
             sections.append({
                 "type": "prose",
                 "id": "filled-" + (sid or "section"),
                 "heading": cur_heading or "",
-                "html": md_to_html(body),
+                "html": md_to_html(md_block),
             })
         buf = []
 
@@ -156,6 +159,7 @@ def parse_brief(md, slot_ids):
         if hm:
             flush_prose()
             cur_heading = hm.group(2).strip()
+            cur_heading_md = line
         else:
             buf.append(line)
         i += 1

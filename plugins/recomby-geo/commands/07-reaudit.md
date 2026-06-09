@@ -64,7 +64,11 @@ and CURR.captured_at. These are the actions in this round's window.
 
 For each query in PREV.summary.per_query:
 - Look up matching query in CURR.summary.per_query (by query_id, fall
-  back to query string).
+  back to query string). **Keep the query text byte-identical across
+  rounds** — `query_id` is derived from the query string (02-audit Step 1),
+  so any edit (even punctuation) mints a new id and silently drops the
+  query from the diff. To revise a tracked query, retire the old one and
+  add the new under a fresh id rather than editing in place.
 - Compute delta: mention_rate_delta, position_delta.
 - Determine verdict_change:
   - `improved` — mention_rate up by ≥10pp OR position improved by ≥1.

@@ -148,6 +148,9 @@ Schema:
 
 `publish_url_planned` filled from CMS conventions (if `extended.website_backend.cms` is set in brand_context).
 
+Validate `distribution/<id>.json` against `schemas/distribution.schema.json`
+before generating the bundle.
+
 ### Step 7 — Generate publish-bundle.md
 
 Human-readable checklist for whoever pushes to the CMS:

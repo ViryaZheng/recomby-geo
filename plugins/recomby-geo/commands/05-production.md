@@ -134,7 +134,8 @@ Record in meta.
 ### Step 7 — Write outputs
 
 - `clients/<slug>/drafts/<id>.md`
-- `clients/<slug>/drafts/<id>.meta.json`
+- `clients/<slug>/drafts/<id>.meta.json` — validate against
+  `schemas/draft_meta.schema.json` before continuing.
 
 Then render the client review HTML via the `geo-review-html` skill (draft
 mode: read-only prose, per-section comment toggles, `✓ Approve as-is`):

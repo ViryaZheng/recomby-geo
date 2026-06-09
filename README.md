@@ -159,8 +159,8 @@ recomby-geo/
 │   ├── plugin.json
 │   ├── orchestrator/run.md           # 完整运行流程图
 │   ├── commands/                     # 7 个工作流命令
-│   ├── skills/                       # 6 个 vendor skills（主战场）
-│   ├── schemas/                      # 4 个 JSON Schema
+│   ├── skills/                       # 7 个 vendor + 自研 skills（主战场）
+│   ├── schemas/                      # 8 个 JSON Schema
 │   └── references/                   # Princeton GEO 方法论等参考
 ├── THIRD_PARTY_LICENSES.md
 └── .gitignore
@@ -172,9 +172,9 @@ recomby-geo/
 
 ## License
 
-本仓库由 Recomby.ai 维护，未来持续投入的主要方向是 `plugins/recomby-geo/`（commands、4 个 Schema、orchestrator、skills 选集）以及 agents.md / clis.md 两份方案架构页——这些组合方式与封装由我们完成（许多原始内容引自开源社区，见下文与 `THIRD_PARTY_LICENSES.md`），整体采用 **MIT** 许可证，详见 [`LICENSE`](LICENSE)。
+本仓库由 Recomby.ai 维护，未来持续投入的主要方向是 `plugins/recomby-geo/`（commands、8 个 Schema、orchestrator、skills 选集）以及 agents.md / clis.md 两份方案架构页——这些组合方式与封装由我们完成（许多原始内容引自开源社区，见下文与 `THIRD_PARTY_LICENSES.md`），整体采用 **MIT** 许可证，详见 [`LICENSE`](LICENSE)。
 
-6 个 vendor skills 保留原始许可证（MIT / Apache 2.0），详见 [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md)。
+7 个 vendor skills 保留原始许可证（MIT / Apache 2.0），自研 skill（geo-review-html）随仓库 MIT 授权，详见 [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md)。
 
 ---
 
