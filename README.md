@@ -172,10 +172,7 @@ recomby-geo/
 
 ## Contributors
 
-- [@ViryaZheng](https://github.com/ViryaZheng)
 - [@hanjinchi7-droid](https://github.com/hanjinchi7-droid)
-- [@piglet12138](https://github.com/piglet12138)
-- [@CHENZlHAO](https://github.com/CHENZlHAO)
 
 欢迎 PR——贡献规则见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
