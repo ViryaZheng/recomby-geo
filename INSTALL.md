@@ -12,7 +12,7 @@
 
 ```bash
 # 在 Claude Code 会话里
-/plugin marketplace add recomby-ai/recomby-geo
+/plugin marketplace add ViryaZheng/recomby-geo
 /plugin install recomby-geo
 ```
 
@@ -38,7 +38,7 @@ Codex 没有裸斜杠命令，入口是 **`geo-pipeline` skill**——它承载�
 ```bash
 codex plugin marketplace add ./        # 读 .agents/plugins/marketplace.json
 # 或从远程仓库：
-codex plugin marketplace add recomby-ai/recomby-geo
+codex plugin marketplace add ViryaZheng/recomby-geo
 ```
 
 装好后在会话里用自然语言驱动各阶段（`geo-pipeline` 按 description 自动触发）：

@@ -7,8 +7,8 @@
     "name": "Recomby.ai",
     "url": "https://github.com/recomby-ai"
   },
-  "homepage": "https://github.com/recomby-ai/recomby-geo",
-  "repository": "https://github.com/recomby-ai/recomby-geo",
+  "homepage": "https://github.com/ViryaZheng/recomby-geo",
+  "repository": "https://github.com/ViryaZheng/recomby-geo",
   "license": "MIT",
   "keywords": ["geo", "aeo", "seo", "ai-search", "generative-engine-optimization", "content-orchestration", "ai-employee"],
   "interface": {
@@ -18,7 +18,7 @@
     "developerName": "Recomby.ai",
     "category": "Marketing",
     "capabilities": ["Skills", "Workflow", "Content"],
-    "websiteURL": "https://github.com/recomby-ai/recomby-geo",
+    "websiteURL": "https://github.com/ViryaZheng/recomby-geo",
     "defaultPrompt": [
       "Run GEO intake for clients/demo",
       "Audit this client's AI search visibility",

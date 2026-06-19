@@ -6,7 +6,7 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 Each release is a git tag — fall back to any version with
 `git checkout vX.Y.Z`, or browse/download it from the
-[Releases page](https://github.com/recomby-ai/recomby-geo/releases).
+[Releases page](https://github.com/ViryaZheng/recomby-geo/releases).
 
 ## [Unreleased]
 
@@ -103,9 +103,9 @@ Initial 7-stage GEO orchestration plugin: 01-intake → 02-audit → 03-gap →
 folder convention. Schemas (Draft 2020-12): `brand_context`,
 `visibility_baseline`, `content_priorities`, `attribution_diff`.
 
-[Unreleased]: https://github.com/recomby-ai/recomby-geo/compare/v0.4.2...HEAD
-[0.4.2]: https://github.com/recomby-ai/recomby-geo/compare/v0.4.1...v0.4.2
-[0.4.1]: https://github.com/recomby-ai/recomby-geo/compare/v0.4.0...v0.4.1
-[0.4.0]: https://github.com/recomby-ai/recomby-geo/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/recomby-ai/recomby-geo/compare/v0.1.0...v0.3.0
-[0.1.0]: https://github.com/recomby-ai/recomby-geo/releases/tag/v0.1.0
+[Unreleased]: https://github.com/ViryaZheng/recomby-geo/compare/v0.4.2...HEAD
+[0.4.2]: https://github.com/ViryaZheng/recomby-geo/compare/v0.4.1...v0.4.2
+[0.4.1]: https://github.com/ViryaZheng/recomby-geo/compare/v0.4.0...v0.4.1
+[0.4.0]: https://github.com/ViryaZheng/recomby-geo/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/ViryaZheng/recomby-geo/compare/v0.1.0...v0.3.0
+[0.1.0]: https://github.com/ViryaZheng/recomby-geo/releases/tag/v0.1.0

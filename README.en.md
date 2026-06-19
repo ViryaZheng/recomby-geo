@@ -106,7 +106,7 @@ GEO is the showcase battleground for the collaborative AI-employee paradigm.
 
 ```bash
 # 1. Install the plugin in Claude Code (GEO Skills + 7-stage workflow commands)
-/plugin marketplace add recomby-ai/recomby-geo
+/plugin marketplace add ViryaZheng/recomby-geo
 /plugin install recomby-geo
 
 # 2. Prepare a project folder
@@ -167,6 +167,17 @@ recomby-geo/
 ├── THIRD_PARTY_LICENSES.md
 └── .gitignore
 ```
+
+---
+
+## Contributors
+
+- [@ViryaZheng](https://github.com/ViryaZheng)
+- [@hanjinchi7-droid](https://github.com/hanjinchi7-droid)
+- [@piglet12138](https://github.com/piglet12138)
+- [@CHENZlHAO](https://github.com/CHENZlHAO)
+
+PRs welcome — see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ---
 

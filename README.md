@@ -105,7 +105,7 @@ GEO 是协作型 AI 员工范式的最佳演示场。
 
 ```bash
 # 1. 在 Claude Code 中安装本插件（GEO Skills + 7 阶段工作流命令）
-/plugin marketplace add recomby-ai/recomby-geo
+/plugin marketplace add ViryaZheng/recomby-geo
 /plugin install recomby-geo
 
 # 2. 准备你的项目目录
@@ -167,6 +167,17 @@ recomby-geo/
 ```
 
 技术细节、Schema 契约、接手 agent 须知：见 [`README.en.md`](README.en.md)。
+
+---
+
+## Contributors
+
+- [@ViryaZheng](https://github.com/ViryaZheng)
+- [@hanjinchi7-droid](https://github.com/hanjinchi7-droid)
+- [@piglet12138](https://github.com/piglet12138)
+- [@CHENZlHAO](https://github.com/CHENZlHAO)
+
+欢迎 PR——贡献规则见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
 ---
 
